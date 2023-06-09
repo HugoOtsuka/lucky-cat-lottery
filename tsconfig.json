@@ -8,11 +8,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
@@ -20,12 +16,8 @@
     "isolatedModules": true,
     "baseUrl": "./src",
     "paths": {
-      "src/*": [
-        "./src/*"
-      ],
-      "@LuckyCatLottery.sol/*": [
-        "artifacts/contracts/LuckyCatLottery.sol/*"
-      ]
+      "src/*": ["./src/*"],
+      "@LuckyCatLottery.sol/*": ["artifacts/contracts/LuckyCatLottery.sol/*"]
     },
     "plugins": [
       {
@@ -33,13 +25,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
