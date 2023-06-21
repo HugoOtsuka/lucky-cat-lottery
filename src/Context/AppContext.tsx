@@ -8,7 +8,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
 
 type AppContextType = {
@@ -48,17 +48,17 @@ type AppContextType = {
   setStop: () => Promise<void>;
   createLottery: (
     creatorFee: number,
-    betPrice: number,
+    betPrice: BigNumber,
     maxBettors: number,
-    endingDate: Date,
+    endingDate: number,
     _password: string,
     privateLottery: boolean
   ) => Promise<void>;
   createLotteryAndBet: (
     creatorFee: number,
-    betPrice: number,
+    betPrice: BigNumber,
     maxBettors: number,
-    endingDate: Date,
+    endingDate: number,
     _password: string,
     privateLottery: boolean
   ) => Promise<void>;
@@ -210,9 +210,9 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const createLottery = async (
     creatorFee: number,
-    betPrice: number,
+    betPrice: BigNumber,
     maxBettors: number,
-    endingDate: Date,
+    endingDate: number,
     _password: string,
     privateLottery: boolean
   ) => {
@@ -231,9 +231,9 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const createLotteryAndBet = async (
     creatorFee: number,
-    betPrice: number,
+    betPrice: BigNumber,
     maxBettors: number,
-    endingDate: Date,
+    endingDate: number,
     _password: string,
     privateLottery: boolean
   ) => {
