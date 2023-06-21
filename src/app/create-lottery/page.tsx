@@ -19,7 +19,7 @@ import { ethers } from "ethers";
 import { Field, Form, Formik } from "formik";
 
 type FormValues = {
-  privateLottery: string;
+  privateLottery: boolean;
   creatorFee: string;
   betPrice?: string;
   maxBettors?: string;
@@ -32,7 +32,7 @@ export default function Page() {
   const { createLottery, createLotteryAndBet } = useAppContext();
 
   const initialValues: FormValues = {
-    privateLottery: "",
+    privateLottery: false,
     creatorFee: "",
     betPrice: "",
     maxBettors: "",
@@ -42,24 +42,28 @@ export default function Page() {
   };
 
   const onSubmit = (values: typeof initialValues) => {
+    let creatorFee = 0;
+    if (values.creatorFee) {
+      creatorFee = parseInt(values.creatorFee);
+    }
     const endingDate = new Date(values.endingDate!).getTime();
     if (!values.createAndBet) {
       createLottery(
-        parseInt(values.creatorFee),
-        ethers.utils.parseEther(values.betPrice!),
+        creatorFee,
+        ethers.utils.parseEther(values.betPrice!.toString()),
         parseInt(values.maxBettors!),
         endingDate,
         ethers.utils.formatBytes32String(values.password!),
-        Boolean(values.privateLottery)
+        values.privateLottery
       );
     } else {
       createLotteryAndBet(
-        parseInt(values.creatorFee),
-        ethers.utils.parseEther(values.betPrice!),
+        creatorFee,
+        ethers.utils.parseEther(values.betPrice!.toString()),
         parseInt(values.maxBettors!),
         endingDate,
         ethers.utils.formatBytes32String(values.password!),
-        Boolean(values.privateLottery)
+        values.privateLottery
       );
     }
   };
@@ -124,10 +128,11 @@ export default function Page() {
                               id="btnPublic"
                               type="button"
                               onClick={() => {
-                                form.setFieldValue("privateLottery", "");
+                                form.setFieldValue("privateLottery", false);
                                 form.setFieldValue("password", "0");
+                                form.setFieldTouched("password", false);
                               }}
-                              isActive={field.value === ""}
+                              isActive={field.value === false}
                             >
                               Public
                             </Button>
@@ -135,10 +140,10 @@ export default function Page() {
                               id="btnPrivate"
                               type="button"
                               onClick={() => {
-                                form.setFieldValue("privateLottery", "true");
+                                form.setFieldValue("privateLottery", true);
                                 form.setFieldValue("password", "");
                               }}
-                              isActive={field.value === "true"}
+                              isActive={field.value === true}
                             >
                               Private
                             </Button>
@@ -245,7 +250,7 @@ export default function Page() {
 
                   <Field name="privateLottery">
                     {({ field, form }: any) => {
-                      if (field.value === "true") {
+                      if (field.value === true) {
                         return (
                           <Field name="password">
                             {({ field }: any) => (
