@@ -12,6 +12,11 @@ import {
   FormLabel,
   Heading,
   Input,
+<<<<<<< HEAD
+=======
+  Radio,
+  RadioGroup,
+>>>>>>> e090d25e0efbf26b1bef463f21e9bdcb3353be55
   Stack,
 } from "@chakra-ui/react";
 import { useAppContext } from "Context/AppContext";
@@ -276,6 +281,7 @@ export default function Page() {
                     }}
                   </Field>
 
+<<<<<<< HEAD
                   <Field name="createAndBet">
                     {({ field }: any) => {
                       if (field.value === false) {
@@ -301,6 +307,15 @@ export default function Page() {
                       }
                     }}
                   </Field>
+=======
+                  <Button
+                    loadingText="Loading"
+                    type="submit"
+                    disabled={!formik.isValid || formik.isSubmitting}
+                  >
+                    Create lottery
+                  </Button>
+>>>>>>> e090d25e0efbf26b1bef463f21e9bdcb3353be55
                 </Form>
               );
             }}
