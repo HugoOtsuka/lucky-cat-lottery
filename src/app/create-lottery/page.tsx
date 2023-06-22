@@ -38,7 +38,7 @@ export default function Page() {
     maxBettors: "",
     endingDate: "",
     createAndBet: false,
-    password: "",
+    password: "0",
   };
 
   const onSubmit = (values: typeof initialValues) => {
@@ -46,25 +46,33 @@ export default function Page() {
     if (values.creatorFee) {
       creatorFee = parseInt(values.creatorFee);
     }
-    const endingDate = new Date(values.endingDate!).getTime();
-    if (!values.createAndBet) {
-      createLottery(
-        creatorFee,
-        ethers.utils.parseEther(values.betPrice!.toString()),
-        parseInt(values.maxBettors!),
-        endingDate,
-        ethers.utils.formatBytes32String(values.password!),
-        values.privateLottery
-      );
-    } else {
-      createLotteryAndBet(
-        creatorFee,
-        ethers.utils.parseEther(values.betPrice!.toString()),
-        parseInt(values.maxBettors!),
-        endingDate,
-        ethers.utils.formatBytes32String(values.password!),
-        values.privateLottery
-      );
+    if (
+      values.betPrice &&
+      values.maxBettors &&
+      values.endingDate &&
+      values.password
+    ) {
+      const endingDate = new Date(values.endingDate).getTime();
+      console.log(endingDate);
+      if (!values.createAndBet) {
+        createLottery(
+          creatorFee,
+          ethers.utils.parseEther(values.betPrice.toString()),
+          parseInt(values.maxBettors),
+          endingDate,
+          ethers.utils.formatBytes32String(values.password),
+          values.privateLottery
+        );
+      } else {
+        createLotteryAndBet(
+          creatorFee,
+          ethers.utils.parseEther(values.betPrice.toString()),
+          parseInt(values.maxBettors),
+          endingDate,
+          ethers.utils.formatBytes32String(values.password),
+          values.privateLottery
+        );
+      }
     }
   };
 

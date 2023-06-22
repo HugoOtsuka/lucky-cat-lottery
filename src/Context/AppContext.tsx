@@ -120,11 +120,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   }, []);
 
   const isReady = () => {
-    return (
-      typeof provider !== "undefined" &&
-      typeof contract !== "undefined" &&
-      accounts.length > 0
-    );
+    return provider && contract && accounts.length > 0;
   };
 
   useEffect(() => {
@@ -148,64 +144,82 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   };
 
   const getHouseFee = async () => {
-    const houseFee = await contract?.houseFee();
-    setHouseFee(houseFee);
+    if (contract) {
+      const houseFee = await contract.houseFee();
+      setHouseFee(houseFee);
+    }
   };
 
   const getFundFee = async () => {
-    const fundFee = await contract?.fundFee();
-    setFundFee(fundFee);
+    if (contract) {
+      const fundFee = await contract.fundFee();
+      setFundFee(fundFee);
+    }
   };
 
   const getCreateStop = async () => {
-    const createStop = await contract?.createStop();
-    setCreateStop(createStop);
+    if (contract) {
+      const createStop = await contract.createStop();
+      setCreateStop(createStop);
+    }
   };
 
   const getActivePublicLotteries = async () => {
-    const nextLotteryId = await contract?.nextLotteryId();
-    const activeLotteries = [];
-    for (let i = 0; i < nextLotteryId; i++) {
-      const lottery = await contract?.lotteries(i);
-      if (lottery.currentState === 0 && lottery.privateLottery === false) {
-        const bettors = await contract?.getBettors(i);
-        activeLotteries.push({ ...lottery, bettors });
+    if (contract) {
+      const nextLotteryId = await contract.nextLotteryId();
+      const activeLotteries = [];
+      for (let i = 0; i < nextLotteryId; i++) {
+        const lottery = await contract.lotteries(i);
+        if (lottery.currentState === 0 && lottery.privateLottery === false) {
+          const bettors = await contract.getBettors(i);
+          activeLotteries.push({ ...lottery, bettors });
+        }
       }
+      setActivePublicLotteries(activePublicLotteries);
     }
-    setActivePublicLotteries(activePublicLotteries);
   };
 
   const getUserLotteries = async () => {
-    const userLotteries = await contract?.getUserLotteries(accounts[0]);
-    setUserLotteries(userLotteries);
+    if (contract) {
+      const userLotteries = await contract.getUserLotteries(accounts[0]);
+      setUserLotteries(userLotteries);
+    }
   };
 
   const getUserBets = async () => {
-    const _lotteries = await contract?.getUsersLotteriesBetted(accounts[0]);
-    const userBets = [];
-    for (let i = 0; i < _lotteries.length; i++) {
-      const lotteryId = _lotteries[i].id.toNumber();
-      const numberOfBets = (
-        await contract?.getUserBets(accounts[0], lotteryId)
-      ).toNumber();
-      userBets[i] = { ..._lotteries[i], numberOfBets };
+    if (contract) {
+      const _lotteries = await contract.getUsersLotteriesBetted(accounts[0]);
+      const userBets = [];
+      for (let i = 0; i < _lotteries.length; i++) {
+        const lotteryId = _lotteries[i].id.toNumber();
+        const numberOfBets = (
+          await contract.getUserBets(accounts[0], lotteryId)
+        ).toNumber();
+        userBets[i] = { ..._lotteries[i], numberOfBets };
+      }
+      setUserBets(userBets);
     }
-    setUserBets(userBets);
   };
 
   const setFeeHouse = async (fee: number) => {
-    await contract?.setHouseFee(fee, { from: accounts[0] });
-    await getHouseFee();
+    if (contract) {
+      await contract.setHouseFee(fee, { from: accounts[0] });
+      await getHouseFee();
+    }
   };
 
   const setFeeFund = async (fee: number) => {
-    await contract?.setFundFee(fee, { from: accounts[0] });
-    await getFundFee();
+    if (contract) {
+      await contract.setFundFee(fee, { from: accounts[0] });
+      await getFundFee();
+    }
   };
 
   const setStop = async () => {
-    await contract?.setStop({ from: accounts[0] });
-    await getCreateStop();
+    if (contract) {
+      await contract.setStop({ from: accounts[0] });
+      await getCreateStop();
+    }
   };
 
   const createLottery = async (
@@ -216,17 +230,19 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     _password: string,
     privateLottery: boolean
   ) => {
-    await contract?.createLottery(
-      creatorFee,
-      betPrice,
-      maxBettors,
-      endingDate,
-      _password,
-      privateLottery,
-      { from: accounts[0] }
-    );
-    await getActivePublicLotteries();
-    await getUserLotteries();
+    if (contract) {
+      await contract.createLottery(
+        creatorFee,
+        betPrice,
+        maxBettors,
+        endingDate,
+        _password,
+        privateLottery,
+        { from: accounts[0] }
+      );
+      await getActivePublicLotteries();
+      await getUserLotteries();
+    }
   };
 
   const createLotteryAndBet = async (
@@ -237,41 +253,47 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     _password: string,
     privateLottery: boolean
   ) => {
-    const salt = Math.floor(Math.random() * 1000);
-    await contract?.createLotteryAndBet(
-      creatorFee,
-      betPrice,
-      maxBettors,
-      endingDate,
-      _password,
-      privateLottery,
-      salt,
-      { from: accounts[0], value: betPrice }
-    );
-    await getActivePublicLotteries();
-    await getUserLotteries();
-    await getUserBets();
+    if (contract) {
+      const salt = Math.floor(Math.random() * 1000);
+      await contract.createLotteryAndBet(
+        creatorFee,
+        betPrice,
+        maxBettors,
+        endingDate,
+        _password,
+        privateLottery,
+        salt,
+        { from: accounts[0], value: betPrice }
+      );
+      await getActivePublicLotteries();
+      await getUserLotteries();
+      await getUserBets();
+    }
   };
 
   const bet = async (lotteryId: number, _password: string) => {
-    const salt = Math.floor(Math.random() * 1000);
-    const lottery = await contract?.lotteries(lotteryId);
-    const betPrice = lottery.betPrice;
-    await contract?.bet(lotteryId, salt, _password, {
-      from: accounts[0],
-      value: betPrice,
-    });
-    await getActivePublicLotteries();
-    await getUserLotteries();
-    await getUserBets();
+    if (contract) {
+      const salt = Math.floor(Math.random() * 1000);
+      const lottery = await contract.lotteries(lotteryId);
+      const betPrice = lottery.betPrice;
+      await contract.bet(lotteryId, salt, _password, {
+        from: accounts[0],
+        value: betPrice,
+      });
+      await getActivePublicLotteries();
+      await getUserLotteries();
+      await getUserBets();
+    }
   };
 
   const claimPrize = async (lotteryId: number) => {
-    const salt = Math.floor(Math.random() * 1000);
-    await contract?.claimPrize(lotteryId, salt, { from: accounts[0] });
-    await getActivePublicLotteries();
-    await getUserLotteries();
-    await getUserBets();
+    if (contract) {
+      const salt = Math.floor(Math.random() * 1000);
+      await contract.claimPrize(lotteryId, salt, { from: accounts[0] });
+      await getActivePublicLotteries();
+      await getUserLotteries();
+      await getUserBets();
+    }
   };
 
   if (!isReady()) {
