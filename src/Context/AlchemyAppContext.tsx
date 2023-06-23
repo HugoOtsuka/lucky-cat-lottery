@@ -101,7 +101,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       setAccounts(accounts);
       setContract(
         new ethers.Contract(
-          "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "0xDdF850D9C2Bd88786283710d6A31F5ECF230C643",
           LuckyCatLottery.abi,
           newSigner
         )

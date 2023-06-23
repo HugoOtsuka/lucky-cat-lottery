@@ -85,7 +85,7 @@ export default function Page() {
 
     if (!values.betPrice) {
       errors.betPrice = "Required";
-    } else if (parseInt(values.betPrice) <= 0) {
+    } else if (parseFloat(values.betPrice) <= 0) {
       errors.betPrice = "The bet price should be greater than 0";
     }
 
