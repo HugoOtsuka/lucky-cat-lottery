@@ -10,6 +10,8 @@ import {
 } from "react";
 import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 type AppContextType = {
   provider: ethers.providers.Web3Provider | undefined;
@@ -92,7 +94,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const [createStop, setCreateStop] = useState<boolean | undefined>(undefined);
 
   const initConnection = async () => {
-    if (typeof window.ethereum !== "undefined") {
+    if (
+      typeof window.ethereum !== "undefined" &&
+      process.env.CONTRACT_ADDRESS
+    ) {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
@@ -101,7 +106,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       setAccounts(accounts);
       setContract(
         new ethers.Contract(
-          "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+          process.env.CONTRACT_ADDRESS,
           LuckyCatLottery.abi,
           newSigner
         )
