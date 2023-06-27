@@ -46,14 +46,7 @@ type AppContextType = {
   setFeeHouse: (fee: number) => Promise<void>;
   setFeeFund: (fee: number) => Promise<void>;
   setStop: () => Promise<void>;
-  createLottery: (
-    creatorFee: number,
-    betPrice: BigNumber,
-    maxBettors: number,
-    endingDate: number,
-    _password: string,
-    privateLottery: boolean
-  ) => Promise<void>;
+  createLottery: () => Promise<void>;
   createLotteryAndBet: (
     creatorFee: number,
     betPrice: BigNumber,
@@ -222,26 +215,17 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     }
   };
 
-  const createLottery = async (
-    creatorFee: number,
-    betPrice: BigNumber,
-    maxBettors: number,
-    endingDate: number,
-    _password: string,
-    privateLottery: boolean
-  ) => {
+  const createLottery = async () => {
     if (contract) {
       await contract.createLottery(
-        creatorFee,
-        betPrice,
-        maxBettors,
-        endingDate,
-        _password,
-        privateLottery,
+        0,
+        ethers.utils.parseEther("1000000"),
+        10,
+        1689422340000,
+        ethers.utils.formatBytes32String("0"),
+        false,
         { from: accounts[0] }
       );
-      await getActivePublicLotteries();
-      await getUserLotteries();
     }
   };
 

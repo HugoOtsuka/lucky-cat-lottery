@@ -17,6 +17,7 @@
     "baseUrl": "./src",
     "paths": {
       "src/*": ["./src/*"],
+      "@Lock.sol/*": ["artifacts/contracts/Lock.sol/*"],
       "@LuckyCatLottery.sol/*": ["artifacts/contracts/LuckyCatLottery.sol/*"]
     },
     "plugins": [
