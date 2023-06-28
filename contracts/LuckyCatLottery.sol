@@ -58,6 +58,8 @@ contract LuckyCatLottery is Context {
         admin = _msgSender();
     }
 	
+    fallback() external {}
+
 	function getLottery(uint lotteryId) external view returns (Lottery memory){
 		Lottery memory lottery = lotteries[lotteryId];
 		return lottery;

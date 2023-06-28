@@ -17,6 +17,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.11.0
     version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.8)(react@18.2.0)
+  '@fontsource/nunito':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@types/react':
     specifier: 18.2.8
     version: 18.2.8
@@ -1766,6 +1769,10 @@ packages:
       '@ethersproject/logger': 5.7.0
       '@ethersproject/properties': 5.7.0
       '@ethersproject/strings': 5.7.0
+
+  /@fontsource/nunito@5.0.3:
+    resolution: {integrity: sha512-NhWeAgtKjGtcAsZulNzaYFIXuX9SKiUjWE5L4tsrvr/Dfu2vWgnjOwL7GX0tvJ4go1bymwVLuQI27OcxHwMPvQ==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.10:
     resolution: {integrity: sha512-KVVjQmNUepDVGXNuoRRdmmEjruj0KfiGSbS8LVc12LMsWDQzRXJ0qdhN8L8uUigKpfEHRhlaQFY0ib1tnUbNeQ==}
