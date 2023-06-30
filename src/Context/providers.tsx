@@ -15,6 +15,20 @@ const theme = extendTheme({
         bg: "gray.900",
         lineHeight: "base",
       },
+      h2: {
+        color: "white",
+        transform: "skew(10deg)",
+      },
+      label: {
+        color: "white",
+        transform: "skew(10deg)",
+      },
+    },
+  },
+  semanticTokens: {
+    colors: {
+      "chakra-body-text": { _light: "white" },
+      "chakra-placeholder-color": { _light: "white" },
     },
   },
   colors: {
@@ -102,6 +116,11 @@ const theme = extendTheme({
       800: "#511C2F",
       900: "#3C1521",
     },
+    primary: "#51cdd8",
+    secondary: "#2b63a3",
+    highlight: "#a2669c",
+    warning: "#f7ae8e",
+    danger: "#ed708e",
   },
 });
 
