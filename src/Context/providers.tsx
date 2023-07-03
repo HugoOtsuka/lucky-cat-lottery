@@ -9,6 +9,12 @@ const theme = extendTheme({
     heading: `'Nunito', sans-serif`,
     body: `'Nunito', sans-serif`,
   },
+  semanticTokens: {
+    colors: {
+      "chakra-body-text": { _light: "white" },
+      "chakra-placeholder-color": { _light: "white" },
+    },
+  },
   styles: {
     global: {
       body: {
@@ -25,10 +31,13 @@ const theme = extendTheme({
       },
     },
   },
-  semanticTokens: {
-    colors: {
-      "chakra-body-text": { _light: "white" },
-      "chakra-placeholder-color": { _light: "white" },
+  components: {
+    Input: {
+      baseStyle: {
+        field: {
+          transform: "skew(10deg)",
+        },
+      },
     },
   },
   colors: {

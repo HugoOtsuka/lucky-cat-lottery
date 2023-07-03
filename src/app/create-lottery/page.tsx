@@ -197,9 +197,9 @@ export default function Page() {
                               id="creatorFee"
                               type="number"
                               placeholder="Enter the fee"
-                              borderRadius={0}
-                              transform="skew(10deg)"
                               flex="75%"
+                              borderRadius={0}
+                              focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
@@ -230,9 +230,9 @@ export default function Page() {
                               id="betPrice"
                               type="number"
                               placeholder="Enter the bet price"
-                              borderRadius={0}
-                              transform="skew(10deg)"
                               flex="75%"
+                              borderRadius={0}
+                              focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
@@ -263,9 +263,9 @@ export default function Page() {
                               id="maxBettors"
                               type="number"
                               placeholder="Enter the max bettors"
-                              borderRadius={0}
-                              transform="skew(10deg)"
                               flex="75%"
+                              borderRadius={0}
+                              focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
@@ -296,9 +296,9 @@ export default function Page() {
                               id="endingDate"
                               type="datetime-local"
                               placeholder="Select Date and Time"
-                              borderRadius={0}
-                              transform="skew(10deg)"
                               flex="75%"
+                              borderRadius={0}
+                              focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
@@ -325,6 +325,8 @@ export default function Page() {
                               id="createAndBet"
                               size="lg"
                               flex="75%"
+                              colorScheme="teal.300"
+                              iconColor="teal.300"
                             ></Checkbox>
                           </Flex>
                         </FormControl>
@@ -352,9 +354,9 @@ export default function Page() {
                                       id="password"
                                       type="password"
                                       placeholder="Enter password"
-                                      borderRadius={0}
-                                      transform="skew(10deg)"
                                       flex="75%"
+                                      borderRadius={0}
+                                      focusBorderColor="teal.300"
                                     />
                                     <FormErrorMessage
                                       transform="skew(10deg)"
