@@ -122,7 +122,7 @@ export default function Page() {
             bg={"linear-gradient(to right, #51cdd8, #f7ae8e)"}
             transform="skew(10deg)"
             w="100%"
-            h={2}
+            h={1}
           />
           <Card bgColor={"gray.900"} p={12} boxShadow={"none"}>
             <Formik
@@ -158,6 +158,7 @@ export default function Page() {
                                   isActive={field.value === false}
                                   borderRadius={0}
                                   transform="skew(10deg)"
+                                  variant="primary"
                                 >
                                   Public
                                 </Button>
@@ -171,6 +172,7 @@ export default function Page() {
                                   isActive={field.value === true}
                                   borderRadius={0}
                                   transform="skew(10deg)"
+                                  variant="primary"
                                 >
                                   Private
                                 </Button>

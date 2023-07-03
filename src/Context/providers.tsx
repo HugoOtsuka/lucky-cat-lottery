@@ -39,6 +39,23 @@ const theme = extendTheme({
         },
       },
     },
+    Button: {
+      variants: {
+        primary: {
+          fontWeight: "normal",
+          bg: "primary",
+          border: "3px solid",
+          borderColor: "primary",
+          color: "white",
+          _hover: {
+            bg: "orange.200",
+          },
+          _active: {
+            bg: "orange.200",
+          },
+        },
+      },
+    },
   },
   colors: {
     gray: {
