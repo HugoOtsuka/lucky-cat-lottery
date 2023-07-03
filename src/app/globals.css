@@ -10,11 +10,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 
 input::-webkit-datetime-edit-fields-wrapper {
   position: relative;
-  left: 1%;
+  left: 2%;
 }
 input::-webkit-datetime-edit {
   position: relative;
-  left: 1%;
+  left: 2%;
 }
 span {
   color: #ed708e;

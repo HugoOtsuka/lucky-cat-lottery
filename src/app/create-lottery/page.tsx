@@ -1,12 +1,12 @@
 "use client";
 import {
+  Box,
   Button,
   ButtonGroup,
   Card,
   CardHeader,
   Checkbox,
   Container,
-  Divider,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { useAppContext } from "Context/AppContext";
 import { ethers } from "ethers";
-import { Field, Form, Formik } from "formik";
+import { Field, Form, Formik, useField, useFormikContext } from "formik";
 
 type FormValues = {
   privateLottery: boolean;
@@ -118,7 +118,12 @@ export default function Page() {
           <CardHeader>
             <Heading size="md">Create lottery</Heading>
           </CardHeader>
-          <Divider />
+          <Box
+            bg={"linear-gradient(to right, #51cdd8, #f7ae8e)"}
+            transform="skew(10deg)"
+            w="100%"
+            h={2}
+          />
           <Card bgColor={"gray.900"} p={12} boxShadow={"none"}>
             <Formik
               initialValues={initialValues}
