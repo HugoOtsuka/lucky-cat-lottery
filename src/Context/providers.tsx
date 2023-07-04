@@ -41,14 +41,23 @@ const theme = extendTheme({
     },
     Button: {
       variants: {
-        primary: {
+        secondary: {
           fontWeight: "normal",
-          bg: "primary",
-          border: "3px solid",
-          borderColor: "primary",
+          bg: "transparent",
           color: "white",
           _hover: {
+            bg: "teal.200",
+          },
+          _active: {
             bg: "orange.200",
+          },
+        },
+        primary: {
+          fontWeight: "normal",
+          bg: "teal.300",
+          color: "white",
+          _hover: {
+            bg: "teal.200",
           },
           _active: {
             bg: "orange.200",

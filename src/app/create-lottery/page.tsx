@@ -119,7 +119,7 @@ export default function Page() {
             <Heading size="md">Create lottery</Heading>
           </CardHeader>
           <Box
-            bg={"linear-gradient(to right, #51cdd8, #f7ae8e)"}
+            bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
             transform="skew(10deg)"
             w="100%"
             h={1}
@@ -136,48 +136,58 @@ export default function Page() {
                     <Field name="privateLottery">
                       {({ field, form }: any) => (
                         <FormControl>
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="privateLottery" flex="25%">
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="privateLottery" flex="30%">
                               Lottery Type
                             </FormLabel>
-                            <ButtonGroup
-                              {...field}
-                              id="privateLottery"
-                              isAttached
-                              flex="75%"
-                            >
-                              <Stack spacing={0} direction="row">
-                                <Button
-                                  id="btnPublic"
-                                  type="button"
-                                  onClick={() => {
-                                    form.setFieldValue("privateLottery", false);
-                                    form.setFieldValue("password", "0");
-                                    form.setFieldTouched("password", false);
-                                  }}
-                                  isActive={field.value === false}
-                                  borderRadius={0}
-                                  transform="skew(10deg)"
-                                  variant="primary"
-                                >
-                                  Public
-                                </Button>
-                                <Button
-                                  id="btnPrivate"
-                                  type="button"
-                                  onClick={() => {
-                                    form.setFieldValue("privateLottery", true);
-                                    form.setFieldValue("password", "");
-                                  }}
-                                  isActive={field.value === true}
-                                  borderRadius={0}
-                                  transform="skew(10deg)"
-                                  variant="primary"
-                                >
-                                  Private
-                                </Button>
-                              </Stack>
-                            </ButtonGroup>
+                            <Box flex="70%">
+                              <ButtonGroup
+                                {...field}
+                                id="privateLottery"
+                                isAttached
+                                transform="skew(10deg)"
+                                w="190px"
+                                bg={"teal.300"}
+                              >
+                                <Stack spacing={0} direction="row">
+                                  <Button
+                                    id="btnPublic"
+                                    type="button"
+                                    onClick={() => {
+                                      form.setFieldValue(
+                                        "privateLottery",
+                                        false
+                                      );
+                                      form.setFieldValue("password", "0");
+                                      form.setFieldTouched("password", false);
+                                    }}
+                                    isActive={field.value === false}
+                                    borderRadius={0}
+                                    variant="secondary"
+                                    w="95px"
+                                  >
+                                    Public
+                                  </Button>
+                                  <Button
+                                    id="btnPrivate"
+                                    type="button"
+                                    onClick={() => {
+                                      form.setFieldValue(
+                                        "privateLottery",
+                                        true
+                                      );
+                                      form.setFieldValue("password", "");
+                                    }}
+                                    isActive={field.value === true}
+                                    borderRadius={0}
+                                    variant="secondary"
+                                    w="95px"
+                                  >
+                                    Private
+                                  </Button>
+                                </Stack>
+                              </ButtonGroup>
+                            </Box>
                           </Flex>
                         </FormControl>
                       )}
@@ -190,8 +200,8 @@ export default function Page() {
                             form.errors.creatorFee && form.touched.creatorFee
                           }
                         >
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="creatorFee" flex="25%">
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="creatorFee" flex="30%">
                               Fee
                             </FormLabel>
                             <Input
@@ -199,14 +209,14 @@ export default function Page() {
                               id="creatorFee"
                               type="number"
                               placeholder="Enter the fee"
-                              flex="75%"
+                              flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
                               pos="absolute"
-                              left="27%"
+                              left="32%"
                               top="40px"
                             >
                               {form.errors.creatorFee}
@@ -223,23 +233,23 @@ export default function Page() {
                             form.errors.betPrice && form.touched.betPrice
                           }
                         >
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="betPrice" flex="25%">
-                              Bet Price<span>*</span>
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="betPrice" flex="30%">
+                              Bet Price <span>*</span>
                             </FormLabel>
                             <Input
                               {...field}
                               id="betPrice"
                               type="number"
                               placeholder="Enter the bet price"
-                              flex="75%"
+                              flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
                               pos="absolute"
-                              left="27%"
+                              left="32%"
                               top="40px"
                             >
                               {form.errors.betPrice}
@@ -256,23 +266,23 @@ export default function Page() {
                             form.errors.maxBettors && form.touched.maxBettors
                           }
                         >
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="maxBettors" flex="25%">
-                              Max bettors<span>*</span>
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="maxBettors" flex="30%">
+                              Max bettors <span>*</span>
                             </FormLabel>
                             <Input
                               {...field}
                               id="maxBettors"
                               type="number"
                               placeholder="Enter the max bettors"
-                              flex="75%"
+                              flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
                               pos="absolute"
-                              left="27%"
+                              left="32%"
                               top="40px"
                             >
                               {form.errors.maxBettors}
@@ -289,23 +299,23 @@ export default function Page() {
                             form.errors.endingDate && form.touched.endingDate
                           }
                         >
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="endingDate" flex="25%">
-                              Ending date<span>*</span>
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="endingDate" flex="30%">
+                              Ending date <span>*</span>
                             </FormLabel>
                             <Input
                               {...field}
                               id="endingDate"
                               type="datetime-local"
                               placeholder="Select Date and Time"
-                              flex="75%"
+                              flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               transform="skew(10deg)"
                               pos="absolute"
-                              left="27%"
+                              left="32%"
                               top="40px"
                             >
                               {form.errors.endingDate}
@@ -318,15 +328,15 @@ export default function Page() {
                     <Field name="createAndBet">
                       {({ field }: any) => (
                         <FormControl>
-                          <Flex mb={10}>
-                            <FormLabel htmlFor="createAndBet" flex="25%">
+                          <Flex mb={14}>
+                            <FormLabel htmlFor="createAndBet" flex="30%">
                               Bet directly on the lottery
                             </FormLabel>
                             <Checkbox
                               {...field}
                               id="createAndBet"
                               size="lg"
-                              flex="75%"
+                              flex="70%"
                               colorScheme="teal.300"
                               iconColor="teal.300"
                             ></Checkbox>
@@ -347,23 +357,23 @@ export default function Page() {
                                     form.touched.password
                                   }
                                 >
-                                  <Flex mb={10}>
-                                    <FormLabel htmlFor="password" flex="25%">
-                                      Password<span>*</span>
+                                  <Flex mb={14}>
+                                    <FormLabel htmlFor="password" flex="30%">
+                                      Password <span>*</span>
                                     </FormLabel>
                                     <Input
                                       {...field}
                                       id="password"
                                       type="password"
                                       placeholder="Enter password"
-                                      flex="75%"
+                                      flex="70%"
                                       borderRadius={0}
                                       focusBorderColor="teal.300"
                                     />
                                     <FormErrorMessage
                                       transform="skew(10deg)"
                                       pos="absolute"
-                                      left="27%"
+                                      left="32%"
                                       top="40px"
                                     >
                                       {form.errors.password}
@@ -392,6 +402,7 @@ export default function Page() {
                                 }
                                 borderRadius={0}
                                 transform="skew(10deg)"
+                                variant="primary"
                               >
                                 Create lottery
                               </Button>
@@ -408,6 +419,7 @@ export default function Page() {
                                 }
                                 borderRadius={0}
                                 transform="skew(10deg)"
+                                variant="primary"
                               >
                                 Create lottery & bet
                               </Button>
