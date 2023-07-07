@@ -135,6 +135,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       getUserLotteries();
       getUserBets();
       getHouseFee();
+      getFundFee();
       getCreateStop();
     }
   }, [provider, contract, accounts]);
@@ -217,7 +218,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const setStop = async () => {
     if (contract) {
-      await contract.setStop({ from: accounts[0] });
+      await contract.setCreateStop({ from: accounts[0] });
       await getCreateStop();
     }
   };

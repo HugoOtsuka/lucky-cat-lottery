@@ -14,10 +14,12 @@ import {
   Heading,
   Input,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { useAppContext } from "Context/AppContext";
 import { ethers } from "ethers";
-import { Field, Form, Formik, useField, useFormikContext } from "formik";
+import { Field, Form, Formik } from "formik";
+import { useEffect } from "react";
 
 type FormValues = {
   privateLottery: boolean;
@@ -30,7 +32,12 @@ type FormValues = {
 };
 
 export default function Page() {
-  const { createLottery, createLotteryAndBet } = useAppContext();
+  const { createLottery, createLotteryAndBet, createStop, getCreateStop } =
+    useAppContext();
+
+  useEffect(() => {
+    getCreateStop();
+  }, []);
 
   const initialValues: FormValues = {
     privateLottery: false,
@@ -107,7 +114,6 @@ export default function Page() {
     if (!values.password) {
       errors.password = "Required";
     }
-
     return errors;
   };
 
@@ -202,13 +208,13 @@ export default function Page() {
                         >
                           <Flex mb={14}>
                             <FormLabel htmlFor="creatorFee" flex="30%">
-                              Fee
+                              Creator fee
                             </FormLabel>
                             <Input
                               {...field}
                               id="creatorFee"
                               type="number"
-                              placeholder="Enter the fee"
+                              placeholder="Enter the creator fee (%)"
                               flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
@@ -235,7 +241,7 @@ export default function Page() {
                         >
                           <Flex mb={14}>
                             <FormLabel htmlFor="betPrice" flex="30%">
-                              Bet Price <span>*</span>
+                              Bet price <span>*</span>
                             </FormLabel>
                             <Input
                               {...field}
@@ -391,38 +397,47 @@ export default function Page() {
 
                     <Field name="createAndBet">
                       {({ field }: any) => {
-                        if (field.value === false) {
-                          return (
-                            <Flex justifyContent="flex-end">
-                              <Button
-                                loadingText="Loading"
-                                type="submit"
-                                disabled={
-                                  !formik.isValid || formik.isSubmitting
-                                }
-                                borderRadius={0}
-                                transform="skew(10deg)"
-                                variant="primary"
-                              >
-                                Create lottery
-                              </Button>
-                            </Flex>
-                          );
+                        if (!createStop) {
+                          if (field.value === false) {
+                            return (
+                              <Flex justifyContent="flex-end">
+                                <Button
+                                  type="submit"
+                                  disabled={
+                                    !formik.isValid || formik.isSubmitting
+                                  }
+                                  borderRadius={0}
+                                  transform="skew(10deg)"
+                                  variant="primary"
+                                >
+                                  Create lottery
+                                </Button>
+                              </Flex>
+                            );
+                          } else {
+                            return (
+                              <Flex justifyContent="flex-end">
+                                <Button
+                                  type="submit"
+                                  disabled={
+                                    !formik.isValid || formik.isSubmitting
+                                  }
+                                  borderRadius={0}
+                                  transform="skew(10deg)"
+                                  variant="primary"
+                                >
+                                  Create lottery & bet
+                                </Button>
+                              </Flex>
+                            );
+                          }
                         } else {
                           return (
                             <Flex justifyContent="flex-end">
-                              <Button
-                                loadingText="Loading"
-                                type="submit"
-                                disabled={
-                                  !formik.isValid || formik.isSubmitting
-                                }
-                                borderRadius={0}
-                                transform="skew(10deg)"
-                                variant="primary"
-                              >
-                                Create lottery & bet
-                              </Button>
+                              <Text color="red.500">
+                                The creation of lotteries are disabled for the
+                                moment.
+                              </Text>
                             </Flex>
                           );
                         }
