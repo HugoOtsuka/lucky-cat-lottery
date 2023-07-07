@@ -5,7 +5,6 @@ import {
   ButtonGroup,
   Card,
   CardHeader,
-  Checkbox,
   Container,
   Flex,
   FormControl,
@@ -343,11 +342,27 @@ export default function Page() {
               <Text>Contract status:</Text>
               <Flex>
                 <Spacer />
-                <Text flex="25%">
-                  Lotteries creation: {createStop ? "Disabled" : "Activated"}
-                </Text>
-                <Text flex="20%">House fee: {houseFee?.toString()}%</Text>
-                <Text flex="20%">Fund fee: {fundFee?.toString()}%</Text>
+                <Flex flex="25%">
+                  <Text>Lotteries creation: </Text>
+                  <Text color={createStop ? "danger" : "warning"}>
+                    {"\u00A0"}
+                    {createStop ? "Disabled" : "Activated"}
+                  </Text>
+                </Flex>
+                <Flex flex="20%">
+                  <Text>House fee: </Text>
+                  <Text color={"warning"}>
+                    {"\u00A0"}
+                    {houseFee?.toString()}%
+                  </Text>
+                </Flex>
+                <Flex flex="20%">
+                  <Text>Fund fee: </Text>
+                  <Text color={"warning"}>
+                    {"\u00A0"}
+                    {fundFee?.toString()}%
+                  </Text>
+                </Flex>
               </Flex>
             </Card>
             <FormCreateStop />
