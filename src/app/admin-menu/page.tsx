@@ -2,6 +2,7 @@
 import {
   Box,
   Button,
+  ButtonGroup,
   Card,
   CardHeader,
   Checkbox,
@@ -13,6 +14,7 @@ import {
   Heading,
   Input,
   Spacer,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import { useAppContext } from "Context/AppContext";
@@ -20,7 +22,7 @@ import { Field, Form, Formik } from "formik";
 import { useEffect } from "react";
 
 type FormValueCreateStop = {
-  formCreateStop?: string;
+  formCreateStop?: boolean;
 };
 
 type FormValueHouseFee = {
@@ -35,36 +37,17 @@ const FormCreateStop = () => {
   const { createStop, setStop } = useAppContext();
 
   const initialValues: FormValueCreateStop = {
-    formCreateStop: createStop?.toString(),
+    formCreateStop: createStop,
   };
 
   const onSubmit = (value: typeof initialValues) => {
     if (value.formCreateStop !== createStop) {
       setStop();
-    } else {
-      console.log("error");
     }
-  };
-
-  const validate = (
-    value: FormValueCreateStop
-  ): Partial<FormValueCreateStop> => {
-    const errors: Partial<FormValueCreateStop> = {};
-
-    if (value.formCreateStop) {
-      if (value.formCreateStop === createStop?.toString()) {
-        errors.formCreateStop = "The createStop is already set to this value";
-      }
-    }
-    return errors;
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validate={validate}
-    >
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {(formik) => {
         return (
           <Form>
@@ -73,16 +56,47 @@ const FormCreateStop = () => {
                 <FormControl>
                   <Flex mb={14}>
                     <FormLabel htmlFor="formCreateStop" flex="30%">
-                      Disable the creation of lotteries
+                      Lotteries creation
                     </FormLabel>
-                    <Checkbox
-                      {...field}
-                      id="formCreateStop"
-                      size="lg"
-                      flex="40%"
-                      colorScheme="teal.300"
-                      iconColor="teal.300"
-                    ></Checkbox>
+                    <Box flex="40%">
+                      <ButtonGroup
+                        {...field}
+                        id="formCreateStop"
+                        isAttached
+                        transform="skew(10deg)"
+                        w="190px"
+                        bg={"teal.300"}
+                      >
+                        <Stack spacing={0} direction="row">
+                          <Button
+                            id="btnActivated"
+                            type="button"
+                            onClick={() => {
+                              form.setFieldValue("formCreateStop", false);
+                            }}
+                            isActive={field.value === false}
+                            borderRadius={0}
+                            variant="secondary"
+                            w="95px"
+                          >
+                            Activate
+                          </Button>
+                          <Button
+                            id="btnDisabled"
+                            type="button"
+                            onClick={() => {
+                              form.setFieldValue("formCreateStop", true);
+                            }}
+                            isActive={field.value === true}
+                            borderRadius={0}
+                            variant="secondary"
+                            w="95px"
+                          >
+                            Disable
+                          </Button>
+                        </Stack>
+                      </ButtonGroup>
+                    </Box>
                     <Flex flex="30%" justify="flex-end">
                       <Button
                         type="submit"
@@ -94,14 +108,6 @@ const FormCreateStop = () => {
                         Save
                       </Button>
                     </Flex>
-                    <FormErrorMessage
-                      transform="skew(10deg)"
-                      pos="absolute"
-                      left="32%"
-                      top="40px"
-                    >
-                      {form.errors.formCreateStop}
-                    </FormErrorMessage>
                   </Flex>
                 </FormControl>
               )}
