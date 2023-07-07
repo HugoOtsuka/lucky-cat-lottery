@@ -330,14 +330,15 @@ export default function Page() {
           <Card bgColor={"gray.900"} p={12} boxShadow={"none"}>
             <Card
               bgColor={"gray.900"}
+              fontSize={18}
               boxShadow={"none"}
               mb={14}
               transform="skew(10deg)"
               borderRadius={0}
-              border={"1px solid"}
+              border={"2px solid"}
               borderColor={"primary"}
               color={"primary"}
-              p={1.5}
+              p={6}
             >
               <Text>Contract status:</Text>
               <Flex>
