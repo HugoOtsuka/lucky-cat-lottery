@@ -22,10 +22,10 @@ type AppContextType = {
   setAccounts: Dispatch<SetStateAction<string[]>>;
   isAdmin: boolean;
   setIsAdmin: Dispatch<SetStateAction<boolean>>;
-  houseFee: number | undefined;
-  setHouseFee: Dispatch<SetStateAction<number | undefined>>;
-  fundFee: number | undefined;
-  setFundFee: Dispatch<SetStateAction<number | undefined>>;
+  houseFee: BigNumber | undefined;
+  setHouseFee: Dispatch<SetStateAction<BigNumber | undefined>>;
+  fundFee: BigNumber | undefined;
+  setFundFee: Dispatch<SetStateAction<BigNumber | undefined>>;
   activePublicLotteries: object[];
   setActivePublicLotteries: Dispatch<SetStateAction<object[]>>;
   userLotteries: object[];
@@ -37,6 +37,7 @@ type AppContextType = {
   createStop: boolean | undefined;
   setCreateStop: Dispatch<SetStateAction<boolean | undefined>>;
   updateDate: () => Promise<void>;
+
   getHouseFee: () => Promise<void>;
   getFundFee: () => Promise<void>;
   getCreateStop: () => Promise<void>;
@@ -81,8 +82,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   );
   const [accounts, setAccounts] = useState<string[]>([]);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [houseFee, setHouseFee] = useState<number | undefined>(undefined);
-  const [fundFee, setFundFee] = useState<number | undefined>(undefined);
+  const [houseFee, setHouseFee] = useState<BigNumber | undefined>(undefined);
+  const [fundFee, setFundFee] = useState<BigNumber | undefined>(undefined);
   const [activePublicLotteries, setActivePublicLotteries] = useState<object[]>(
     []
   );
@@ -176,7 +177,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
           activeLotteries.push({ ...lottery, bettors });
         }
       }
-      setActivePublicLotteries(activePublicLotteries);
+      setActivePublicLotteries(activeLotteries);
     }
   };
 
@@ -204,21 +205,28 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
 
   const setFeeHouse = async (fee: number) => {
     if (contract) {
-      await contract.setHouseFee(fee, { from: accounts[0] });
+      const setFeeHouseTx = await contract.setHouseFee(fee, {
+        from: accounts[0],
+      });
+      await setFeeHouseTx.wait();
       await getHouseFee();
     }
   };
 
   const setFeeFund = async (fee: number) => {
     if (contract) {
-      await contract.setFundFee(fee, { from: accounts[0] });
+      const setFeeFundTx = await contract.setFundFee(fee, {
+        from: accounts[0],
+      });
+      await setFeeFundTx.wait();
       await getFundFee();
     }
   };
 
   const setStop = async () => {
     if (contract) {
-      await contract.setCreateStop({ from: accounts[0] });
+      const setStopTx = await contract.setCreateStop({ from: accounts[0] });
+      await setStopTx.wait();
       await getCreateStop();
     }
   };
@@ -232,7 +240,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     privateLottery: boolean
   ) => {
     if (contract) {
-      await contract.createLottery(
+      const createLotteryTx = await contract.createLottery(
         creatorFee,
         betPrice,
         maxBettors,
@@ -241,6 +249,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         privateLottery,
         { from: accounts[0] }
       );
+      await createLotteryTx.wait();
       await getActivePublicLotteries();
       await getUserLotteries();
     }
@@ -256,7 +265,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   ) => {
     if (contract) {
       const salt = Math.floor(Math.random() * 1000);
-      await contract.createLotteryAndBet(
+      const createLotteryAndBetTx = await contract.createLotteryAndBet(
         creatorFee,
         betPrice,
         maxBettors,
@@ -266,6 +275,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         salt,
         { from: accounts[0], value: betPrice }
       );
+      await createLotteryAndBetTx.wait();
       await getActivePublicLotteries();
       await getUserLotteries();
       await getUserBets();
@@ -277,10 +287,11 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       const salt = Math.floor(Math.random() * 1000);
       const lottery = await contract.lotteries(lotteryId);
       const betPrice = lottery.betPrice;
-      await contract.bet(lotteryId, salt, _password, {
+      const betTx = await contract.bet(lotteryId, salt, _password, {
         from: accounts[0],
         value: betPrice,
       });
+      await betTx.wait();
       await getActivePublicLotteries();
       await getUserLotteries();
       await getUserBets();
@@ -290,7 +301,10 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const claimPrize = async (lotteryId: number) => {
     if (contract) {
       const salt = Math.floor(Math.random() * 1000);
-      await contract.claimPrize(lotteryId, salt, { from: accounts[0] });
+      const claimPrizeTx = await contract.claimPrize(lotteryId, salt, {
+        from: accounts[0],
+      });
+      await claimPrizeTx.wait();
       await getActivePublicLotteries();
       await getUserLotteries();
       await getUserBets();

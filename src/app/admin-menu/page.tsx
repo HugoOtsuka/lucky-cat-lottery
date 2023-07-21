@@ -317,19 +317,19 @@ export default function Page() {
   return (
     <>
       <Container maxW={"container.lg"}>
-        <Card bgColor={"gray.900"} boxShadow={"none"}>
+        <Card bgColor={"transparent"} boxShadow={"none"}>
           <CardHeader>
             <Heading size="md">Admin menu</Heading>
           </CardHeader>
           <Box
-            bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
+            bg={"linear-gradient(to right, #a2669c, #ed708e)"}
             transform="skew(10deg)"
             w="100%"
             h={1}
           />
-          <Card bgColor={"gray.900"} p={12} boxShadow={"none"}>
+          <Box bgColor={"transparent"} p={12}>
             <Card
-              bgColor={"gray.900"}
+              bgColor={"transparent"}
               fontSize={18}
               boxShadow={"none"}
               mb={14}
@@ -340,25 +340,25 @@ export default function Page() {
               color={"primary"}
               p={6}
             >
-              <Text>Contract status:</Text>
+              <Text>Contract status :</Text>
               <Flex>
                 <Spacer />
                 <Flex flex="25%">
-                  <Text>Lotteries creation: </Text>
+                  <Text>Lotteries creation : </Text>
                   <Text color={createStop ? "danger" : "warning"}>
                     {"\u00A0"}
                     {createStop ? "Disabled" : "Activated"}
                   </Text>
                 </Flex>
                 <Flex flex="20%">
-                  <Text>House fee: </Text>
+                  <Text>House fee : </Text>
                   <Text color={"warning"}>
                     {"\u00A0"}
                     {houseFee?.toString()}%
                   </Text>
                 </Flex>
                 <Flex flex="20%">
-                  <Text>Fund fee: </Text>
+                  <Text>Fund fee : </Text>
                   <Text color={"warning"}>
                     {"\u00A0"}
                     {fundFee?.toString()}%
@@ -369,7 +369,7 @@ export default function Page() {
             <FormCreateStop />
             <FormHouseFee />
             <FormFundFee />
-          </Card>
+          </Box>
         </Card>
       </Container>
     </>

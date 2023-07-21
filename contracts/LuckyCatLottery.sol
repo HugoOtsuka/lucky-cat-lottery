@@ -136,7 +136,7 @@ contract LuckyCatLottery is Context {
 			createStop = false;
 		}
     }
-	
+
     function createLottery(uint _creatorFee, uint _betPrice, uint _maxBettors, uint _endingDate, bytes32 _password, bool _privateLottery) external returns(uint) {
         uint newLotteryId = _createLottery(_creatorFee, _betPrice, _maxBettors, _endingDate, _password, _privateLottery, _msgSender());
         return newLotteryId;  

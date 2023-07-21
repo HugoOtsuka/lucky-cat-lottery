@@ -1,10 +1,12 @@
 "use client";
-import { Container } from "@chakra-ui/react";
+import { Box, Container, Heading } from "@chakra-ui/react";
 import { useAppContext } from "Context/AppContext";
 import { useEffect } from "react";
+import LotteriesList from "components/LotteriesList";
 
 export default function Home() {
-  const { updateDate, getActivePublicLotteries } = useAppContext();
+  const { date, activePublicLotteries, updateDate, getActivePublicLotteries } =
+    useAppContext();
 
   useEffect(() => {
     updateDate();
@@ -12,12 +14,23 @@ export default function Home() {
   }, []);
 
   return (
-    <Container maxW={"container.lg"} bgColor={"blue.300"}>
-      <h1>All lotteries</h1>
-      <h1>Hi</h1>
-      <h1>Hi</h1>
-      <h1>Hi</h1>
-      <h1>Hi</h1>
+    <Container maxW={"container.lg"} bgColor={"transparent"}>
+      <Box p="20px">
+        <Heading size="md">All lotteries</Heading>
+      </Box>
+      <Box
+        bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
+        transform="skew(10deg)"
+        w="100%"
+        h={1}
+        mb={8}
+      />
+      <LotteriesList
+        lotteries={activePublicLotteries}
+        date={date}
+        inMyLotteries={false}
+        inMyBets={false}
+      />
     </Container>
   );
 }

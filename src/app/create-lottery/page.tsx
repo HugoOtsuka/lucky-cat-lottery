@@ -61,7 +61,6 @@ export default function Page() {
         creatorFee = parseInt(values.creatorFee);
       }
       const endingDate = new Date(values.endingDate).getTime();
-      console.log(endingDate);
       if (!values.createAndBet) {
         createLottery(
           creatorFee,
@@ -120,7 +119,7 @@ export default function Page() {
   return (
     <>
       <Container maxW={"container.lg"}>
-        <Card bgColor={"gray.900"} boxShadow={"none"}>
+        <Card bgColor={"transparent"} boxShadow={"none"}>
           <CardHeader>
             <Heading size="md">Create lottery</Heading>
           </CardHeader>
@@ -130,7 +129,7 @@ export default function Page() {
             w="100%"
             h={1}
           />
-          <Card bgColor={"gray.900"} p={12} boxShadow={"none"}>
+          <Box bgColor={"transparent"} p={12}>
             <Formik
               initialValues={initialValues}
               onSubmit={onSubmit}
@@ -247,7 +246,7 @@ export default function Page() {
                               {...field}
                               id="betPrice"
                               type="number"
-                              placeholder="Enter the bet price"
+                              placeholder="Enter the bet price (ETH)"
                               flex="70%"
                               borderRadius={0}
                               focusBorderColor="teal.300"
@@ -447,7 +446,7 @@ export default function Page() {
                 );
               }}
             </Formik>
-          </Card>
+          </Box>
         </Card>
       </Container>
     </>
