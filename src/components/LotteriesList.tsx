@@ -38,7 +38,7 @@ export default function LotteriesList({
     <>
       {lotteries && lotteries.length > 0 ? (
         <Box>
-          {lotteries.map(async (lottery: any, index: number) => (
+          {lotteries.map((lottery: any, index: number) => (
             <Card
               key={lottery.id}
               bg={
