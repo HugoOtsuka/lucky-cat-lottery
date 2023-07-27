@@ -10,6 +10,7 @@ import {
 } from "react";
 import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
+import { Lottery } from "components/LotteryInterface";
 
 type AppContextType = {
   provider: ethers.providers.Web3Provider | undefined;
@@ -26,18 +27,17 @@ type AppContextType = {
   setHouseFee: Dispatch<SetStateAction<BigNumber | undefined>>;
   fundFee: BigNumber | undefined;
   setFundFee: Dispatch<SetStateAction<BigNumber | undefined>>;
-  activePublicLotteries: object[];
-  setActivePublicLotteries: Dispatch<SetStateAction<object[]>>;
-  userLotteries: object[];
-  setUserLotteries: Dispatch<SetStateAction<object[]>>;
-  userBets: object[];
-  setUserBets: Dispatch<SetStateAction<object[]>>;
+  activePublicLotteries: Lottery[];
+  setActivePublicLotteries: Dispatch<SetStateAction<Lottery[]>>;
+  userLotteries: Lottery[];
+  setUserLotteries: Dispatch<SetStateAction<Lottery[]>>;
+  userBets: Lottery[];
+  setUserBets: Dispatch<SetStateAction<Lottery[]>>;
   date: Date;
   setDate: Dispatch<SetStateAction<Date>>;
   createStop: boolean | undefined;
   setCreateStop: Dispatch<SetStateAction<boolean | undefined>>;
   updateDate: () => Promise<void>;
-
   getHouseFee: () => Promise<void>;
   getFundFee: () => Promise<void>;
   getCreateStop: () => Promise<void>;
@@ -84,11 +84,11 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [houseFee, setHouseFee] = useState<BigNumber | undefined>(undefined);
   const [fundFee, setFundFee] = useState<BigNumber | undefined>(undefined);
-  const [activePublicLotteries, setActivePublicLotteries] = useState<object[]>(
+  const [activePublicLotteries, setActivePublicLotteries] = useState<Lottery[]>(
     []
   );
-  const [userLotteries, setUserLotteries] = useState<object[]>([]);
-  const [userBets, setUserBets] = useState<object[]>([]);
+  const [userLotteries, setUserLotteries] = useState<Lottery[]>([]);
+  const [userBets, setUserBets] = useState<Lottery[]>([]);
   const [date, setDate] = useState(new Date());
   const [createStop, setCreateStop] = useState<boolean | undefined>(undefined);
 

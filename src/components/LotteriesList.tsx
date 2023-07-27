@@ -11,9 +11,10 @@ import {
 import { useAppContext } from "Context/AppContext";
 import { ethers } from "ethers";
 import { useRouter } from "next/navigation";
+import { Lottery } from "components/LotteryInterface";
 
 type LotteriesListProps = {
-  lotteries: object[];
+  lotteries: Lottery[];
   date: Date;
   inMyLotteries: boolean;
   inMyBets: boolean;
@@ -27,6 +28,7 @@ export default function LotteriesList({
 }: LotteriesListProps) {
   const { bet, claimPrize } = useAppContext();
   const router = useRouter();
+  console.log(lotteries);
 
   const handleOnClickBet = (lotteryId: number) => {
     bet(lotteryId, ethers.utils.formatBytes32String("0"));
