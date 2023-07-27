@@ -28,7 +28,6 @@ export default function LotteriesList({
 }: LotteriesListProps) {
   const { bet, claimPrize } = useAppContext();
   const router = useRouter();
-  console.log(lotteries);
 
   const handleOnClickBet = (lotteryId: number) => {
     bet(lotteryId, ethers.utils.formatBytes32String("0"));

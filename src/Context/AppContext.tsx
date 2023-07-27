@@ -10,7 +10,7 @@ import {
 } from "react";
 import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
-import { Lottery } from "components/LotteryInterface";
+import { Lottery, LotteryExtended } from "components/LotteryInterface";
 
 type AppContextType = {
   provider: ethers.providers.Web3Provider | undefined;
@@ -27,6 +27,8 @@ type AppContextType = {
   setHouseFee: Dispatch<SetStateAction<BigNumber | undefined>>;
   fundFee: BigNumber | undefined;
   setFundFee: Dispatch<SetStateAction<BigNumber | undefined>>;
+  lottery: LotteryExtended | undefined;
+  setLottery: Dispatch<SetStateAction<LotteryExtended | undefined>>;
   activePublicLotteries: Lottery[];
   setActivePublicLotteries: Dispatch<SetStateAction<Lottery[]>>;
   userLotteries: Lottery[];
@@ -41,6 +43,7 @@ type AppContextType = {
   getHouseFee: () => Promise<void>;
   getFundFee: () => Promise<void>;
   getCreateStop: () => Promise<void>;
+  getLottery: (lotteryId: number) => Promise<void>;
   getActivePublicLotteries: () => Promise<void>;
   getUserLotteries: () => Promise<void>;
   getUserBets: () => Promise<void>;
@@ -84,6 +87,9 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [houseFee, setHouseFee] = useState<BigNumber | undefined>(undefined);
   const [fundFee, setFundFee] = useState<BigNumber | undefined>(undefined);
+  const [lottery, setLottery] = useState<LotteryExtended | undefined>(
+    undefined
+  );
   const [activePublicLotteries, setActivePublicLotteries] = useState<Lottery[]>(
     []
   );
@@ -163,6 +169,16 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
     if (contract) {
       const createStop = await contract.createStop();
       setCreateStop(createStop);
+    }
+  };
+
+  const getLottery = async (lotteryId: number) => {
+    if (contract) {
+      const lotteryc = await contract.getLottery(lotteryId);
+      const numberOfBets: number = (
+        await contract.getUserBets(accounts[0], lotteryId)
+      ).toNumber();
+      setLottery({ ...lotteryc, numberOfBets });
     }
   };
 
@@ -330,6 +346,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         setHouseFee,
         fundFee,
         setFundFee,
+        lottery,
+        setLottery,
         activePublicLotteries,
         setActivePublicLotteries,
         userLotteries,
@@ -344,6 +362,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
         getHouseFee,
         getFundFee,
         getCreateStop,
+        getLottery,
         getActivePublicLotteries,
         getUserLotteries,
         getUserBets,

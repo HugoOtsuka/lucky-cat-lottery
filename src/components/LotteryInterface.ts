@@ -13,3 +13,7 @@ export interface Lottery {
   lotteryCreator: string;
   bettors: string[];
 }
+
+export interface LotteryExtended extends Lottery {
+  numberOfBets: number;
+}
