@@ -1,6 +1,6 @@
 "use client";
 import { Box, Container, Heading } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useAppContext } from "Context/BlockchainContext";
 import { useEffect } from "react";
 import LotteriesList from "components/LotteriesList";
 

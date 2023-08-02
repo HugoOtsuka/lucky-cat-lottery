@@ -8,7 +8,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useAppContext } from "Context/BlockchainContext";
 import { ethers } from "ethers";
 import { useRouter } from "next/navigation";
 import { Lottery } from "components/LotteryInterface";

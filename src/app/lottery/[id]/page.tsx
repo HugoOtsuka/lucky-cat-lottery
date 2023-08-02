@@ -15,7 +15,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useAppContext } from "Context/BlockchainContext";
 import { Field, Form, Formik } from "formik";
 import { ethers } from "ethers";
 import { FC, useEffect } from "react";
