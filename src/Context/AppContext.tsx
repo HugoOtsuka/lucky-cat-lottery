@@ -311,6 +311,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       await getActivePublicLotteries();
       await getUserLotteries();
       await getUserBets();
+      await getLottery(lotteryId);
     }
   };
 
@@ -324,6 +325,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       await getActivePublicLotteries();
       await getUserLotteries();
       await getUserBets();
+      await getLottery(lotteryId);
     }
   };
 

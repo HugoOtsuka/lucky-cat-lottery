@@ -352,7 +352,7 @@ export default function Page() {
 
                     <Field name="privateLottery">
                       {({ field, form }: any) => {
-                        if (field.value === true) {
+                        if (field.value) {
                           return (
                             <Field name="password">
                               {({ field }: any) => (
@@ -397,7 +397,7 @@ export default function Page() {
                     <Field name="createAndBet">
                       {({ field }: any) => {
                         if (!createStop) {
-                          if (field.value === false) {
+                          if (!field.value) {
                             return (
                               <Flex justifyContent="flex-end">
                                 <Button

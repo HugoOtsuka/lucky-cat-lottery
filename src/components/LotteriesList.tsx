@@ -45,7 +45,9 @@ export default function LotteriesList({
             <Card
               key={lottery.id}
               bg={
-                index % 3 === 0
+                lottery.currentState === 1
+                  ? "linear-gradient(to right, #4A5568, #A0AEC0)"
+                  : index % 3 === 0
                   ? "linear-gradient(to right, #2b63a3, #f8f39e)"
                   : index % 3 === 1
                   ? "linear-gradient(to right, #a2669c, #ed708e)"
@@ -65,12 +67,27 @@ export default function LotteriesList({
                 >
                   <Flex justify={"space-between"} pb={4}>
                     <Flex>
-                      <Text color={"primary"}>Lottery</Text>
-                      <Text color={"warning"}>
+                      <Text
+                        color={
+                          lottery.currentState === 1 ? "gray.300" : "primary"
+                        }
+                      >
+                        Lottery
+                      </Text>
+                      <Text
+                        color={
+                          lottery.currentState === 1 ? "gray.300" : "warning"
+                        }
+                      >
                         {"\u00A0"}
                         {lottery.id.toNumber()}
                       </Text>
                     </Flex>
+                    {lottery.currentState === 1 ? (
+                      <Text fontWeight="bold" color={"gray.300"}>
+                        Finished
+                      </Text>
+                    ) : null}
                     {inMyLotteries || inMyBets ? (
                       <Text
                         color={lottery.privateLottery ? "#f8f39e" : "#51cdd8"}
@@ -80,7 +97,10 @@ export default function LotteriesList({
                     ) : null}
                   </Flex>
                   <Divider />
-                  <Box px={6}>
+                  <Box
+                    px={6}
+                    color={lottery.currentState === 1 ? "gray.300" : "white"}
+                  >
                     <Flex pt={4} pb={2}>
                       <Text>Prize pool :</Text>
                       <Spacer />
@@ -119,19 +139,8 @@ export default function LotteriesList({
                   </Box>
                 </Box>
                 {lottery.currentState === 0 ? (
-                  date < lottery.endingDate.toNumber() ? (
-                    lottery.privateLottery === false ? (
-                      <Flex justifyContent="flex-end">
-                        <Button
-                          variant="primary"
-                          borderRadius={0}
-                          onClick={() => handleOnClickBet(lottery.id)}
-                        >
-                          Bet
-                        </Button>
-                      </Flex>
-                    ) : null
-                  ) : lottery.bettors.length > 0 ? (
+                  date > new Date(lottery.endingDate.toNumber()) &&
+                  lottery.bettors.length > 0 ? (
                     <Flex justifyContent="flex-end">
                       <Button
                         variant="primary"
@@ -141,20 +150,18 @@ export default function LotteriesList({
                         Claim prize
                       </Button>
                     </Flex>
-                  ) : (
+                  ) : !lottery.privateLottery ? (
                     <Flex justifyContent="flex-end">
-                      <Button variant="danger" disabled>
-                        Finished
+                      <Button
+                        variant="primary"
+                        borderRadius={0}
+                        onClick={() => handleOnClickBet(lottery.id)}
+                      >
+                        Bet
                       </Button>
                     </Flex>
-                  )
-                ) : (
-                  <Flex justifyContent="flex-end">
-                    <Button variant="danger" disabled>
-                      Finished
-                    </Button>
-                  </Flex>
-                )}
+                  ) : null
+                ) : null}
               </Flex>
             </Card>
           ))}
