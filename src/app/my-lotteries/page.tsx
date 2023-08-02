@@ -1,11 +1,12 @@
 "use client";
 import { Box, Container, Heading } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useBlockchainContext } from "Context/BlockchainContext";
 import { useEffect } from "react";
 import LotteriesList from "components/LotteriesList";
 
 export default function Page() {
-  const { date, userLotteries, updateDate, getUserLotteries } = useAppContext();
+  const { date, userLotteries, updateDate, getUserLotteries } =
+    useBlockchainContext();
 
   useEffect(() => {
     updateDate();

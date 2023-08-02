@@ -15,7 +15,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useBlockchainContext } from "Context/BlockchainContext";
 import { Field, Form, Formik } from "formik";
 import { ethers } from "ethers";
 import { FC, useEffect } from "react";
@@ -30,7 +30,7 @@ type pageProps = {
 
 const page: FC<pageProps> = ({ params }) => {
   const { date, lottery, bet, claimPrize, getLottery, updateDate } =
-    useAppContext();
+    useBlockchainContext();
 
   useEffect(() => {
     updateDate();

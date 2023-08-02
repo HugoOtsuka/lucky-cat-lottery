@@ -16,7 +16,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useBlockchainContext } from "Context/BlockchainContext";
 import { ethers } from "ethers";
 import { Field, Form, Formik } from "formik";
 import { useEffect } from "react";
@@ -33,7 +33,7 @@ type FormValues = {
 
 export default function Page() {
   const { createLottery, createLotteryAndBet, createStop, getCreateStop } =
-    useAppContext();
+    useBlockchainContext();
 
   useEffect(() => {
     getCreateStop();

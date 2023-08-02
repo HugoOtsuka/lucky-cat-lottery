@@ -12,7 +12,7 @@ import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
 import { Lottery, LotteryExtended } from "components/LotteryInterface";
 
-type AppContextType = {
+type BlockchainContextType = {
   provider: ethers.providers.Web3Provider | undefined;
   setProvider: Dispatch<
     SetStateAction<ethers.providers.Web3Provider | undefined>
@@ -70,13 +70,17 @@ type AppContextType = {
   claimPrize: (lotteryId: number) => Promise<void>;
 };
 
-type AppContextProviderProps = {
+type BlockchainContextProviderProps = {
   children: React.ReactNode;
 };
 
-export const AppContext = createContext<AppContextType>({} as AppContextType);
+export const BlockchainContext = createContext<BlockchainContextType>(
+  {} as BlockchainContextType
+);
 
-export const AppContextProvider = ({ children }: AppContextProviderProps) => {
+export const BlockchainContextProvider = ({
+  children,
+}: BlockchainContextProviderProps) => {
   const [provider, setProvider] = useState<
     ethers.providers.Web3Provider | undefined
   >(undefined);
@@ -334,7 +338,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   }
 
   return (
-    <AppContext.Provider
+    <BlockchainContext.Provider
       value={{
         provider,
         setProvider,
@@ -378,8 +382,8 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
       }}
     >
       {children}
-    </AppContext.Provider>
+    </BlockchainContext.Provider>
   );
 };
 
-export const useAppContext = () => useContext(AppContext);
+export const useBlockchainContext = () => useContext(BlockchainContext);

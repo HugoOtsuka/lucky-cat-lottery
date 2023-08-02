@@ -8,7 +8,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useBlockchainContext } from "Context/BlockchainContext";
 import { ethers } from "ethers";
 import { useRouter } from "next/navigation";
 import { Lottery } from "components/LotteryInterface";
@@ -26,7 +26,7 @@ export default function LotteriesList({
   inMyLotteries,
   inMyBets,
 }: LotteriesListProps) {
-  const { bet, claimPrize } = useAppContext();
+  const { bet, claimPrize } = useBlockchainContext();
   const router = useRouter();
 
   const handleOnClickBet = (lotteryId: number) => {

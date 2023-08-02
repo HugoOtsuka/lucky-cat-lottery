@@ -165,7 +165,7 @@ const FontContainer = styled.div`
   font-family: "Nunito", sans-serif;
 `;
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function UIContextProvider({ children }: { children: React.ReactNode }) {
   return (
     <CacheProvider>
       <ChakraProvider theme={theme}>

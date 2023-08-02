@@ -16,7 +16,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useAppContext } from "Context/AppContext";
+import { useBlockchainContext } from "Context/BlockchainContext";
 import { Field, Form, Formik } from "formik";
 import { useEffect } from "react";
 
@@ -33,7 +33,7 @@ type FormValueFundFee = {
 };
 
 const FormCreateStop = () => {
-  const { createStop, setStop } = useAppContext();
+  const { createStop, setStop } = useBlockchainContext();
 
   const initialValues: FormValueCreateStop = {
     formCreateStop: createStop,
@@ -119,7 +119,7 @@ const FormCreateStop = () => {
 };
 
 const FormHouseFee = () => {
-  const { houseFee, setFeeHouse } = useAppContext();
+  const { houseFee, setFeeHouse } = useBlockchainContext();
 
   const initialValues: FormValueHouseFee = {
     formHouseFee: houseFee?.toString(),
@@ -209,7 +209,7 @@ const FormHouseFee = () => {
 };
 
 const FormFundFee = () => {
-  const { fundFee, setFeeFund } = useAppContext();
+  const { fundFee, setFeeFund } = useBlockchainContext();
 
   const initialValues: FormValueFundFee = {
     formFundFee: fundFee?.toString(),
@@ -306,7 +306,7 @@ export default function Page() {
     getHouseFee,
     getFundFee,
     getCreateStop,
-  } = useAppContext();
+  } = useBlockchainContext();
 
   useEffect(() => {
     getHouseFee();
