@@ -19,7 +19,7 @@ export default function Page() {
         <Heading size="md">My lotteries</Heading>
       </Box>
       <Box
-        bg={"linear-gradient(to right, #2b63a3, #f8f39e)"}
+        bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
         transform="skew(10deg)"
         w="100%"
         h={1}

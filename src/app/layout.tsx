@@ -1,8 +1,10 @@
+"use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { UIContextProvider } from "../Context/UIContext";
-import { BlockchainContextProvider } from "../Context/BlockchainContext";
+import { UIContextProvider } from "Context/UIContext";
+import { BlockchainContextProvider } from "Context/BlockchainContext";
 import Navbar from "components/Navbar";
+import { Box } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <UIContextProvider>
           <BlockchainContextProvider>
-            <Navbar />
+            <Box position={"sticky"} top={0} width={"100%"} zIndex={1}>
+              <Navbar />
+            </Box>
             {children}
           </BlockchainContextProvider>
         </UIContextProvider>

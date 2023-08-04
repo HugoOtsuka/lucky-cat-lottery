@@ -1,7 +1,7 @@
 "use client";
 
 import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { CSSReset, ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "@fontsource/nunito/500.css";
 
 const theme = extendTheme({
@@ -169,6 +169,7 @@ export function UIContextProvider({ children }: { children: React.ReactNode }) {
   return (
     <CacheProvider>
       <ChakraProvider theme={theme}>
+        <CSSReset />
         <FontContainer>{children}</FontContainer>
       </ChakraProvider>
     </CacheProvider>

@@ -48,9 +48,9 @@ export default function LotteriesList({
                 lottery.currentState === 1
                   ? "linear-gradient(to right, #4A5568, #A0AEC0)"
                   : index % 3 === 0
-                  ? "linear-gradient(to right, #2b63a3, #f8f39e)"
+                  ? "linear-gradient(to right, #2b63a3, #a2669c)"
                   : index % 3 === 1
-                  ? "linear-gradient(to right, #a2669c, #ed708e)"
+                  ? "linear-gradient(to right, #f8f39e, #ed708e)"
                   : "linear-gradient(to right, #51cdd8, #F7AE8E)"
               }
               transform="skew(10deg)"

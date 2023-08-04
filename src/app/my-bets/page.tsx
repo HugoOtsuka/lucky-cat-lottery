@@ -18,7 +18,7 @@ export default function Page() {
         <Heading size="md">My bets</Heading>
       </Box>
       <Box
-        bg={"linear-gradient(to right, #a2669c, #ed708e)"}
+        bg={"linear-gradient(to right, #f8f39e, #ed708e)"}
         transform="skew(10deg)"
         w="100%"
         h={1}
