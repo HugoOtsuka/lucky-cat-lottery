@@ -28,12 +28,11 @@ export default function RootLayout({
               width={"100%"}
               zIndex={1}
               bg={"gray.900"}
-              padding={"2px"}
-              boxShadow="0px 4px 20px 20px #1E1E1E"
+              boxShadow="0px 4px 15px 20px #1E1E1E"
             >
               <Navbar />
             </Box>
-            <Box mt={"24px"}>{children}</Box>
+            <Box mt={"10px"}>{children}</Box>
           </BlockchainContextProvider>
         </UIContextProvider>
       </body>
