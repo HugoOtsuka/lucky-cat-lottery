@@ -29,6 +29,9 @@ dependencies:
   alchemy-sdk:
     specifier: ^2.9.0
     version: 2.9.0(bufferutil@4.0.7)(utf-8-validate@5.0.10)
+  animate.css:
+    specifier: ^4.1.1
+    version: 4.1.1
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -2794,6 +2797,10 @@ packages:
     engines: {node: '>=0.4.2'}
     dev: true
     optional: true
+
+  /animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-colors@3.2.3:
     resolution: {integrity: sha512-LEHHyuhlPY3TmuUYMh2oz89lTShfvgbmzaBcxve9t/9Wuy7Dwf4yoAKcND7KFT1HAQfqZ12qtc+DUrBMeKF9nw==}
