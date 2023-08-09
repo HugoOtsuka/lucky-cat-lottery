@@ -9,7 +9,7 @@ interface CustomLinkProps extends BoxProps {
 const CustomLink: React.FC<CustomLinkProps> = ({ href, linkText, ...rest }) => {
   return (
     <Box
-      mx={6}
+      mx={1}
       transform="skew(10deg)"
       bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
       p={1}
