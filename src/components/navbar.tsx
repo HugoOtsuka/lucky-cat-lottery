@@ -21,7 +21,11 @@ export default function Navbar() {
 
         <Box width={"75px"} mx={6}></Box>
         <Flex pt={"13px"} pb={"14px"} width="100%">
-          <CustomLink href="/" linkText="All lotteries" />
+          <CustomLink
+            href="/"
+            linkText="All lotteries"
+            shadowColor="tealOrange"
+          />
           <Box
             bg={"linear-gradient(to right, #F7AE8E, #2b63a3)"}
             h={1}
@@ -33,6 +37,7 @@ export default function Navbar() {
             href="/my-lotteries"
             linkText="My Lotteries"
             bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
+            shadowColor="bluePurple"
           />
           <Box
             bg={"linear-gradient(to right, #a2669c, #f8f39e)"}
@@ -45,6 +50,7 @@ export default function Navbar() {
             href="/my-bets"
             linkText="My Bets"
             bg={"linear-gradient(to right, #f8f39e, #ed708e)"}
+            shadowColor="yellowRed"
           />
           <Box
             bg={"linear-gradient(to right, #ed708e, #51cdd8)"}
@@ -53,7 +59,11 @@ export default function Navbar() {
             transform="skew(10deg)"
             mt={"23.5px"}
           />
-          <CustomLink href="/create-lottery" linkText="Create Lottery" />
+          <CustomLink
+            href="/create-lottery"
+            linkText="Create Lottery"
+            shadowColor="tealOrange"
+          />
           {isAdmin ? (
             <>
               <Box
@@ -67,6 +77,7 @@ export default function Navbar() {
                 href="/admin-menu"
                 linkText="Admin"
                 bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
+                shadowColor="bluePurple"
               />
               <Box
                 bg={"linear-gradient(to right, #a2669c, #f8f39e)"}
