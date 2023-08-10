@@ -20,7 +20,6 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   return (
     <Box
       mx={1}
-      transform="skew(10deg)"
       bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
       p={1}
       boxShadow={

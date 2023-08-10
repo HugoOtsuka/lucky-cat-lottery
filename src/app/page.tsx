@@ -20,7 +20,6 @@ export default function Home() {
       </Box>
       <Box
         bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
-        transform="skew(10deg)"
         w="100%"
         h={1}
         mb={8}

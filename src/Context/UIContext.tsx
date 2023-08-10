@@ -24,22 +24,13 @@ const theme = extendTheme({
       },
       h2: {
         color: "white",
-        transform: "skew(10deg)",
       },
       label: {
         color: "white",
-        transform: "skew(10deg)",
       },
     },
   },
   components: {
-    Input: {
-      baseStyle: {
-        field: {
-          transform: "skew(10deg)",
-        },
-      },
-    },
     Button: {
       variants: {
         secondary: {

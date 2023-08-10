@@ -97,46 +97,45 @@ const page: FC<pageProps> = ({ params }) => {
               ? "linear-gradient(to right, #4A5568, #A0AEC0)"
               : "linear-gradient(to right, #a2669c, #ed708e)"
           }
-          transform="skew(10deg)"
           w="100%"
           h={1}
         />
         <Box p={12} color={lottery.currentState === 1 ? "gray.300" : "white"}>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>Prize pool :</Text>
             <Spacer />
             <Text>{ethers.utils.formatEther(lottery.prizePool)} ETH</Text>
           </Flex>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>Bet price :</Text>
             <Spacer />
             <Text>{ethers.utils.formatEther(lottery.betPrice)} ETH</Text>
           </Flex>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>Bettors :</Text>
             <Spacer />
             <Text>{`${
               lottery.bettors.length
             }/${lottery.maxBettors.toNumber()}`}</Text>
           </Flex>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>My bets :</Text>
             <Spacer />
             <Text>{`${lottery.numberOfBets}`}</Text>
           </Flex>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>Creator fee :</Text>
             <Spacer />
             <Text>{lottery.creatorFee.toNumber()} %</Text>
           </Flex>
-          <Flex pb={4} transform="skew(10deg)">
+          <Flex pb={4}>
             <Text>Ending date :</Text>
             <Spacer />
             <Text>
               {new Date(lottery.endingDate.toNumber()).toLocaleString()}
             </Text>
           </Flex>
-          <Flex pb={10} transform="skew(10deg)">
+          <Flex pb={10}>
             <Text>Creator :</Text>
             <Spacer />
             <Text>{lottery.lotteryCreator}</Text>
@@ -144,16 +143,13 @@ const page: FC<pageProps> = ({ params }) => {
 
           {lottery.currentState === 1 ? (
             <Flex justifyContent="center">
-              <Text fontWeight="bold" transform="skew(10deg)">
-                The lottery is finished
-              </Text>
+              <Text fontWeight="bold">The lottery is finished</Text>
             </Flex>
           ) : date > new Date(lottery.endingDate.toNumber()) &&
             lottery.bettors.length > 0 ? (
             <Flex justifyContent="flex-end">
               <Button
                 variant="primary"
-                transform="skew(10deg)"
                 borderRadius={0}
                 onClick={() => handleOnClickClaim(lottery.id.toNumber())}
               >
@@ -191,7 +187,6 @@ const page: FC<pageProps> = ({ params }) => {
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
-                              transform="skew(10deg)"
                               pos="absolute"
                               left="66%"
                               top="40px"
@@ -207,7 +202,6 @@ const page: FC<pageProps> = ({ params }) => {
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
                         borderRadius={0}
-                        transform="skew(10deg)"
                         variant="primary"
                       >
                         Bet
@@ -221,7 +215,6 @@ const page: FC<pageProps> = ({ params }) => {
             <Flex justifyContent="flex-end">
               <Button
                 variant="primary"
-                transform="skew(10deg)"
                 borderRadius={0}
                 onClick={() => handleOnClickBet(lottery.id.toNumber())}
               >
@@ -236,7 +229,6 @@ const page: FC<pageProps> = ({ params }) => {
               ? "linear-gradient(to right, #4A5568, #A0AEC0)"
               : "linear-gradient(to right, #a2669c, #ed708e)"
           }
-          transform="skew(10deg)"
           w="100%"
           h={1}
         />

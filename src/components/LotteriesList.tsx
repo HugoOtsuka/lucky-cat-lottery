@@ -53,7 +53,6 @@ export default function LotteriesList({
                   ? "linear-gradient(to right, #f8f39e, #ed708e)"
                   : "linear-gradient(to right, #51cdd8, #F7AE8E)"
               }
-              transform="skew(10deg)"
               boxShadow={"none"}
               borderRadius={0}
               p={1}
@@ -170,7 +169,6 @@ export default function LotteriesList({
         <Flex justifyContent="center">
           <Card
             bg={"linear-gradient(to right, #a2669c, #ed708e)"}
-            transform="skew(10deg)"
             boxShadow={"none"}
             borderRadius={0}
             p={1}

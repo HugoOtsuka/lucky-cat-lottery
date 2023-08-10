@@ -125,7 +125,6 @@ export default function Page() {
           </CardHeader>
           <Box
             bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
-            transform="skew(10deg)"
             w="100%"
             h={1}
           />
@@ -150,7 +149,6 @@ export default function Page() {
                                 {...field}
                                 id="privateLottery"
                                 isAttached
-                                transform="skew(10deg)"
                                 w="190px"
                                 bg={"teal.300"}
                               >
@@ -219,7 +217,6 @@ export default function Page() {
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
-                              transform="skew(10deg)"
                               pos="absolute"
                               left="32%"
                               top="40px"
@@ -252,7 +249,6 @@ export default function Page() {
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
-                              transform="skew(10deg)"
                               pos="absolute"
                               left="32%"
                               top="40px"
@@ -285,7 +281,6 @@ export default function Page() {
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
-                              transform="skew(10deg)"
                               pos="absolute"
                               left="32%"
                               top="40px"
@@ -318,7 +313,6 @@ export default function Page() {
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
-                              transform="skew(10deg)"
                               pos="absolute"
                               left="32%"
                               top="40px"
@@ -376,7 +370,6 @@ export default function Page() {
                                       focusBorderColor="teal.300"
                                     />
                                     <FormErrorMessage
-                                      transform="skew(10deg)"
                                       pos="absolute"
                                       left="32%"
                                       top="40px"
@@ -406,7 +399,6 @@ export default function Page() {
                                     !formik.isValid || formik.isSubmitting
                                   }
                                   borderRadius={0}
-                                  transform="skew(10deg)"
                                   variant="primary"
                                 >
                                   Create lottery
@@ -422,7 +414,6 @@ export default function Page() {
                                     !formik.isValid || formik.isSubmitting
                                   }
                                   borderRadius={0}
-                                  transform="skew(10deg)"
                                   variant="primary"
                                 >
                                   Create lottery & bet

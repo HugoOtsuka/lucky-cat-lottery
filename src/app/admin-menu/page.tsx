@@ -62,7 +62,6 @@ const FormCreateStop = () => {
                         {...field}
                         id="formCreateStop"
                         isAttached
-                        transform="skew(10deg)"
                         w="190px"
                         bg={"teal.300"}
                       >
@@ -101,7 +100,6 @@ const FormCreateStop = () => {
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
                         borderRadius={0}
-                        transform="skew(10deg)"
                         variant="primary"
                       >
                         Save
@@ -183,18 +181,12 @@ const FormHouseFee = () => {
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
                         borderRadius={0}
-                        transform="skew(10deg)"
                         variant="primary"
                       >
                         Save
                       </Button>
                     </Flex>
-                    <FormErrorMessage
-                      transform="skew(10deg)"
-                      pos="absolute"
-                      left="32%"
-                      top="40px"
-                    >
+                    <FormErrorMessage pos="absolute" left="32%" top="40px">
                       {form.errors.formHouseFee}
                     </FormErrorMessage>
                   </Flex>
@@ -273,18 +265,12 @@ const FormFundFee = () => {
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
                         borderRadius={0}
-                        transform="skew(10deg)"
                         variant="primary"
                       >
                         Save
                       </Button>
                     </Flex>
-                    <FormErrorMessage
-                      transform="skew(10deg)"
-                      pos="absolute"
-                      left="32%"
-                      top="40px"
-                    >
+                    <FormErrorMessage pos="absolute" left="32%" top="40px">
                       {form.errors.formFundFee}
                     </FormErrorMessage>
                   </Flex>
@@ -323,7 +309,6 @@ export default function Page() {
           </CardHeader>
           <Box
             bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
-            transform="skew(10deg)"
             w="100%"
             h={1}
           />
@@ -333,7 +318,6 @@ export default function Page() {
               fontSize={18}
               boxShadow={"none"}
               mb={14}
-              transform="skew(10deg)"
               borderRadius={0}
               border={"2px solid"}
               borderColor={"primary"}
