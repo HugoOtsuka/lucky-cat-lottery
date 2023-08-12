@@ -25,14 +25,14 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       boxShadow={
         isActive
           ? shadowColor === "tealOrange"
-            ? "0px 10px 20px -10px #51cdd8, 0px -10px 20px -10px #F7AE8E"
+            ? "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E"
             : shadowColor === "bluePurple"
-            ? "0px 10px 20px -10px #2b63a3, 0px -10px 20px -10px #a2669c"
-            : "0px 10px 20px -10px #f8f39e, 0px -10px 20px -10px #ed708e"
+            ? "0px 10px 10px -5px #2b63a3, 0px -10px 10px -5px #a2669c"
+            : "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e"
           : "none"
       }
       _hover={{
-        boxShadow: "0px 10px 20px -10px white, 0px -10px 20px -10px white",
+        boxShadow: "0px 10px 10px -5px white, 0px -10px 10px -5px white",
       }}
       {...rest}
     >

@@ -22,17 +22,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <UIContextProvider>
           <BlockchainContextProvider>
-            <Box
-              position={"sticky"}
-              top={0}
-              width={"100%"}
-              zIndex={1}
-              bg={"gray.900"}
-              boxShadow="0px 4px 15px 20px #1E1E1E"
-            >
-              <Navbar />
-            </Box>
-            <Box mt={"10px"}>{children}</Box>
+            <Navbar />
+            <Box mt={"75px"}>{children}</Box>
           </BlockchainContextProvider>
         </UIContextProvider>
       </body>

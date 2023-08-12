@@ -72,7 +72,10 @@ const page: FC<pageProps> = ({ params }) => {
   }
 
   return (
-    <Container maxW={"container.md"}>
+    <Container
+      className="animate__animated animate__fadeIn"
+      maxW={"container.md"}
+    >
       <Card bgColor={"transparent"} boxShadow={"none"}>
         <CardHeader>
           <Flex>
