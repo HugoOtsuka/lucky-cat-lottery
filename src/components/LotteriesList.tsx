@@ -40,10 +40,13 @@ export default function LotteriesList({
   return (
     <>
       {lotteries && lotteries.length > 0 ? (
-        <Box>
+        <>
           {lotteries.map((lottery: any, index: number) => (
             <Card
               key={lottery.id}
+              className={
+                "animate__animated animate__fadeInLeft animate__faster"
+              }
               bg={
                 lottery.currentState === 1
                   ? "linear-gradient(to right, #4A5568, #A0AEC0)"
@@ -164,9 +167,12 @@ export default function LotteriesList({
               </Flex>
             </Card>
           ))}
-        </Box>
+        </>
       ) : (
-        <Flex justifyContent="center">
+        <Flex
+          className="animate__animated animate__fadeInLeft animate__faster"
+          justifyContent="center"
+        >
           <Card
             bg={"linear-gradient(to right, #a2669c, #ed708e)"}
             boxShadow={"none"}

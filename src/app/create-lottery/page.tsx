@@ -118,7 +118,10 @@ export default function Page() {
 
   return (
     <>
-      <Container maxW={"container.lg"}>
+      <Container
+        className="animate__animated animate__fadeIn"
+        maxW={"container.lg"}
+      >
         <Card bgColor={"transparent"} boxShadow={"none"}>
           <CardHeader>
             <Heading size="md">Create lottery</Heading>

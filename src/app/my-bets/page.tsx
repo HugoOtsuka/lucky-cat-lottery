@@ -13,7 +13,11 @@ export default function Page() {
   }, []);
 
   return (
-    <Container maxW={"container.lg"} bgColor={"transparent"}>
+    <Container
+      className="animate__animated animate__fadeIn"
+      maxW={"container.lg"}
+      bgColor={"transparent"}
+    >
       <Box p="20px">
         <Heading size="md">My bets</Heading>
       </Box>

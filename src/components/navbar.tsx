@@ -21,9 +21,13 @@ export default function Navbar() {
         </Link>
 
         <Box width={"75px"} mx={6}></Box>
-        <Flex pt={"13px"} pb={"14px"} width="100%">
+        <Flex
+          className="animate__animated animate__fadeInRight"
+          pt={"13px"}
+          pb={"14px"}
+          width="100%"
+        >
           <CustomLink
-            className="animate__animated animate__fadeInRight"
             href="/"
             linkText="All lotteries"
             shadowColor="tealOrange"
@@ -36,7 +40,6 @@ export default function Navbar() {
             mt={"23.5px"}
           />
           <CustomLink
-            className="animate__animated animate__fadeInRight"
             href="/my-lotteries"
             linkText="My Lotteries"
             bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
@@ -50,7 +53,6 @@ export default function Navbar() {
             mt={"23.5px"}
           />
           <CustomLink
-            className="animate__animated animate__fadeInRight"
             href="/my-bets"
             linkText="My Bets"
             bg={"linear-gradient(to right, #f8f39e, #ed708e)"}
@@ -64,7 +66,6 @@ export default function Navbar() {
             mt={"23.5px"}
           />
           <CustomLink
-            className="animate__animated animate__fadeInRight"
             href="/create-lottery"
             linkText="Create Lottery"
             shadowColor="tealOrange"
@@ -79,7 +80,6 @@ export default function Navbar() {
                 mt={"23.5px"}
               />
               <CustomLink
-                className="animate__animated animate__fadeInRight"
                 href="/admin-menu"
                 linkText="Admin"
                 bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
