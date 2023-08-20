@@ -17,6 +17,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useBlockchainContext } from "Context/BlockchainContext";
+import CustomButton from "components/CustomButton";
 import { ethers } from "ethers";
 import { Field, Form, Formik } from "formik";
 import { useEffect } from "react";
@@ -153,10 +154,19 @@ export default function Page() {
                                 id="privateLottery"
                                 isAttached
                                 w="190px"
-                                bg={"teal.300"}
                               >
                                 <Stack spacing={0} direction="row">
-                                  <Button
+                                  <CustomButton
+                                    buttonText="Public"
+                                    colorTheme="tealOrange"
+                                    mx={1}
+                                    w={"95px"}
+                                    _active={{
+                                      transition: "color 0.2s",
+                                      color: "teal.300",
+                                      boxShadow:
+                                        "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E",
+                                    }}
                                     id="btnPublic"
                                     type="button"
                                     onClick={() => {
@@ -168,13 +178,18 @@ export default function Page() {
                                       form.setFieldTouched("password", false);
                                     }}
                                     isActive={field.value === false}
-                                    borderRadius={0}
-                                    variant="secondary"
-                                    w="95px"
-                                  >
-                                    Public
-                                  </Button>
-                                  <Button
+                                  />
+                                  <CustomButton
+                                    buttonText="Private"
+                                    colorTheme="yellowRed"
+                                    mx={1}
+                                    w={"95px"}
+                                    _active={{
+                                      transition: "color 0.2s",
+                                      color: "yellow.200",
+                                      boxShadow:
+                                        "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e",
+                                    }}
                                     id="btnPrivate"
                                     type="button"
                                     onClick={() => {
@@ -185,12 +200,7 @@ export default function Page() {
                                       form.setFieldValue("password", "");
                                     }}
                                     isActive={field.value === true}
-                                    borderRadius={0}
-                                    variant="secondary"
-                                    w="95px"
-                                  >
-                                    Private
-                                  </Button>
+                                  />
                                 </Stack>
                               </ButtonGroup>
                             </Box>
@@ -393,37 +403,22 @@ export default function Page() {
                     <Field name="createAndBet">
                       {({ field }: any) => {
                         if (!createStop) {
-                          if (!field.value) {
-                            return (
-                              <Flex justifyContent="flex-end">
-                                <Button
-                                  type="submit"
-                                  disabled={
-                                    !formik.isValid || formik.isSubmitting
-                                  }
-                                  borderRadius={0}
-                                  variant="primary"
-                                >
-                                  Create lottery
-                                </Button>
-                              </Flex>
-                            );
-                          } else {
-                            return (
-                              <Flex justifyContent="flex-end">
-                                <Button
-                                  type="submit"
-                                  disabled={
-                                    !formik.isValid || formik.isSubmitting
-                                  }
-                                  borderRadius={0}
-                                  variant="primary"
-                                >
-                                  Create lottery & bet
-                                </Button>
-                              </Flex>
-                            );
-                          }
+                          return (
+                            <Flex justifyContent="flex-end">
+                              <CustomButton
+                                buttonText={
+                                  !field.value
+                                    ? "Create lottery"
+                                    : "Create lottery & bet"
+                                }
+                                colorTheme="bluePurple"
+                                type="submit"
+                                disabled={
+                                  !formik.isValid || formik.isSubmitting
+                                }
+                              />
+                            </Flex>
+                          );
                         } else {
                           return (
                             <Flex justifyContent="flex-end">

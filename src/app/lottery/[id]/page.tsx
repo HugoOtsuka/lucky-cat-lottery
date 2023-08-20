@@ -19,6 +19,7 @@ import { useBlockchainContext } from "Context/BlockchainContext";
 import { Field, Form, Formik } from "formik";
 import { ethers } from "ethers";
 import { FC, useEffect } from "react";
+import CustomButton from "components/CustomButton";
 
 type FormValue = {
   password: string;
@@ -151,13 +152,11 @@ const page: FC<pageProps> = ({ params }) => {
           ) : date > new Date(lottery.endingDate.toNumber()) &&
             lottery.bettors.length > 0 ? (
             <Flex justifyContent="flex-end">
-              <Button
-                variant="primary"
-                borderRadius={0}
+              <CustomButton
+                buttonText="Claim prize"
+                colorTheme="yellowRed"
                 onClick={() => handleOnClickClaim(lottery.id.toNumber())}
-              >
-                Claim prize
-              </Button>
+              />
             </Flex>
           ) : lottery.privateLottery ? (
             <Formik
@@ -201,14 +200,13 @@ const page: FC<pageProps> = ({ params }) => {
                       )}
                     </Field>
                     <Flex justifyContent="flex-end">
-                      <Button
+                      <CustomButton
+                        buttonText="Bet"
+                        colorTheme="tealOrange"
+                        w={"75px"}
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
-                        borderRadius={0}
-                        variant="primary"
-                      >
-                        Bet
-                      </Button>
+                      />
                     </Flex>
                   </Form>
                 );
@@ -216,13 +214,12 @@ const page: FC<pageProps> = ({ params }) => {
             </Formik>
           ) : (
             <Flex justifyContent="flex-end">
-              <Button
-                variant="primary"
-                borderRadius={0}
+              <CustomButton
+                buttonText="Bet"
+                colorTheme="tealOrange"
+                w={"75px"}
                 onClick={() => handleOnClickBet(lottery.id.toNumber())}
-              >
-                Bet
-              </Button>
+              />
             </Flex>
           )}
         </Box>

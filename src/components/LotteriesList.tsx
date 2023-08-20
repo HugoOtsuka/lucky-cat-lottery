@@ -12,6 +12,7 @@ import { useBlockchainContext } from "Context/BlockchainContext";
 import { ethers } from "ethers";
 import { useRouter } from "next/navigation";
 import { Lottery } from "components/LotteryInterface";
+import CustomButton from "./CustomButton";
 
 type LotteriesListProps = {
   lotteries: Lottery[];
@@ -144,23 +145,20 @@ export default function LotteriesList({
                   date > new Date(lottery.endingDate.toNumber()) &&
                   lottery.bettors.length > 0 ? (
                     <Flex justifyContent="flex-end">
-                      <Button
-                        variant="primary"
-                        borderRadius={0}
+                      <CustomButton
+                        buttonText="Claim prize"
+                        colorTheme="yellowRed"
                         onClick={() => handleOnClickClaim(lottery.id)}
-                      >
-                        Claim prize
-                      </Button>
+                      />
                     </Flex>
                   ) : !lottery.privateLottery ? (
                     <Flex justifyContent="flex-end">
-                      <Button
-                        variant="primary"
-                        borderRadius={0}
+                      <CustomButton
+                        buttonText="Bet"
+                        colorTheme="tealOrange"
+                        w={"75px"}
                         onClick={() => handleOnClickBet(lottery.id)}
-                      >
-                        Bet
-                      </Button>
+                      />
                     </Flex>
                   ) : null
                 ) : null}

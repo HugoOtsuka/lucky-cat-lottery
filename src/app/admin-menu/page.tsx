@@ -17,6 +17,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useBlockchainContext } from "Context/BlockchainContext";
+import CustomButton from "components/CustomButton";
 import { Field, Form, Formik } from "formik";
 import { useEffect } from "react";
 
@@ -63,47 +64,55 @@ const FormCreateStop = () => {
                         id="formCreateStop"
                         isAttached
                         w="190px"
-                        bg={"teal.300"}
                       >
                         <Stack spacing={0} direction="row">
-                          <Button
+                          <CustomButton
+                            buttonText="Activate"
+                            colorTheme="tealOrange"
+                            mx={1}
+                            w={"95px"}
+                            _active={{
+                              transition: "color 0.2s",
+                              color: "orange.200",
+                              boxShadow:
+                                "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E",
+                            }}
                             id="btnActivated"
                             type="button"
                             onClick={() => {
                               form.setFieldValue("formCreateStop", false);
                             }}
                             isActive={field.value === false}
-                            borderRadius={0}
-                            variant="secondary"
-                            w="95px"
-                          >
-                            Activate
-                          </Button>
-                          <Button
+                          />
+                          <CustomButton
+                            buttonText="Disable"
+                            colorTheme="bluePurple"
+                            mx={1}
+                            w={"95px"}
+                            _active={{
+                              transition: "color 0.2s",
+                              color: "red.300",
+                              boxShadow:
+                                "0px 10px 10px -5px #2b63a3, 0px -10px 10px -5px #a2669c",
+                            }}
                             id="btnDisabled"
                             type="button"
                             onClick={() => {
                               form.setFieldValue("formCreateStop", true);
                             }}
                             isActive={field.value === true}
-                            borderRadius={0}
-                            variant="secondary"
-                            w="95px"
-                          >
-                            Disable
-                          </Button>
+                          />
                         </Stack>
                       </ButtonGroup>
                     </Box>
                     <Flex flex="30%" justify="flex-end">
-                      <Button
+                      <CustomButton
+                        buttonText="Save"
+                        colorTheme="yellowRed"
+                        w={"75px"}
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
-                        borderRadius={0}
-                        variant="primary"
-                      >
-                        Save
-                      </Button>
+                      />
                     </Flex>
                   </Flex>
                 </FormControl>
@@ -177,14 +186,13 @@ const FormHouseFee = () => {
                       focusBorderColor="teal.300"
                     />
                     <Flex flex="30%" justify="flex-end">
-                      <Button
+                      <CustomButton
+                        buttonText="Save"
+                        colorTheme="yellowRed"
+                        w={"75px"}
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
-                        borderRadius={0}
-                        variant="primary"
-                      >
-                        Save
-                      </Button>
+                      />
                     </Flex>
                     <FormErrorMessage pos="absolute" left="32%" top="40px">
                       {form.errors.formHouseFee}
@@ -261,14 +269,13 @@ const FormFundFee = () => {
                       focusBorderColor="teal.300"
                     />
                     <Flex flex="30%" justify="flex-end">
-                      <Button
+                      <CustomButton
+                        buttonText="Save"
+                        colorTheme="yellowRed"
+                        w={"75px"}
                         type="submit"
                         disabled={!formik.isValid || formik.isSubmitting}
-                        borderRadius={0}
-                        variant="primary"
-                      >
-                        Save
-                      </Button>
+                      />
                     </Flex>
                     <FormErrorMessage pos="absolute" left="32%" top="40px">
                       {form.errors.formFundFee}

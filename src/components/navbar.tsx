@@ -74,7 +74,7 @@ export default function Navbar() {
             <CustomLink
               href="/"
               linkText="All lotteries"
-              shadowColor="tealOrange"
+              colorTheme="tealOrange"
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
@@ -86,8 +86,7 @@ export default function Navbar() {
             <CustomLink
               href="/my-lotteries"
               linkText="My Lotteries"
-              bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
-              shadowColor="bluePurple"
+              colorTheme="bluePurple"
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
@@ -99,8 +98,7 @@ export default function Navbar() {
             <CustomLink
               href="/my-bets"
               linkText="My Bets"
-              bg={"linear-gradient(to right, #f8f39e, #ed708e)"}
-              shadowColor="yellowRed"
+              colorTheme="yellowRed"
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
@@ -112,7 +110,7 @@ export default function Navbar() {
             <CustomLink
               href="/create-lottery"
               linkText="Create Lottery"
-              shadowColor="tealOrange"
+              colorTheme="tealOrange"
             />
             {isAdmin ? (
               <>
@@ -126,8 +124,7 @@ export default function Navbar() {
                 <CustomLink
                   href="/admin-menu"
                   linkText="Admin"
-                  bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
-                  shadowColor="bluePurple"
+                  colorTheme="bluePurple"
                 />
                 <Box
                   className="animate__animated animate__fadeIn animate__delay-1s"

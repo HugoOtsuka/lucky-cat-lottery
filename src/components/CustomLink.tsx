@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation";
 interface CustomLinkProps extends BoxProps {
   href: string;
   linkText: string;
-  shadowColor: string;
+  colorTheme: string;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({
   href,
   linkText,
-  shadowColor,
+  colorTheme,
   ...rest
 }) => {
   const pathname = usePathname();
@@ -20,18 +20,25 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   return (
     <Box
       mx={1}
-      bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
+      bg={
+        colorTheme === "yellowRed"
+          ? "linear-gradient(to right, #f8f39e, #ed708e)"
+          : colorTheme === "bluePurple"
+          ? "linear-gradient(to right, #2b63a3, #a2669c)"
+          : "linear-gradient(to right, #51cdd8, #F7AE8E)"
+      }
       p={1}
       boxShadow={
         isActive
-          ? shadowColor === "tealOrange"
-            ? "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E"
-            : shadowColor === "bluePurple"
+          ? colorTheme === "yellowRed"
+            ? "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e"
+            : colorTheme === "bluePurple"
             ? "0px 10px 10px -5px #2b63a3, 0px -10px 10px -5px #a2669c"
-            : "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e"
+            : "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E"
           : "none"
       }
       _hover={{
+        transition: "box-shadow 0.2s",
         boxShadow: "0px 10px 10px -5px white, 0px -10px 10px -5px white",
       }}
       {...rest}
