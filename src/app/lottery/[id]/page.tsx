@@ -2,7 +2,6 @@
 
 import {
   Box,
-  Button,
   Card,
   CardHeader,
   Container,
@@ -20,6 +19,7 @@ import { Field, Form, Formik } from "formik";
 import { ethers } from "ethers";
 import { FC, useEffect } from "react";
 import CustomButton from "components/CustomButton";
+import Loading from "components/Loading";
 
 type FormValue = {
   password: string;
@@ -69,7 +69,7 @@ const page: FC<pageProps> = ({ params }) => {
   };
 
   if (!lottery) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

@@ -1,5 +1,5 @@
 "use client";
-import { Box, Container, Flex, Image, Link, Spacer } from "@chakra-ui/react";
+import { Box, Container, Flex, Image, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import CustomLink from "components/CustomLink";
 import { useBlockchainContext } from "Context/BlockchainContext";

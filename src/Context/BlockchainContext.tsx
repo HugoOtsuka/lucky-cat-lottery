@@ -11,6 +11,7 @@ import {
 import { BigNumber, ethers } from "ethers";
 import LuckyCatLottery from "@LuckyCatLottery.sol/LuckyCatLottery.json";
 import { Lottery, LotteryExtended } from "components/LotteryInterface";
+import Loading from "components/Loading";
 
 type BlockchainContextType = {
   provider: ethers.providers.Web3Provider | undefined;
@@ -334,7 +335,7 @@ export const BlockchainContextProvider = ({
   };
 
   if (!isReady()) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
