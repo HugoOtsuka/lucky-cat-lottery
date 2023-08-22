@@ -126,11 +126,7 @@ export default function Page() {
           <CardHeader>
             <Heading size="md">Create lottery</Heading>
           </CardHeader>
-          <Box
-            bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
-            w="100%"
-            h={1}
-          />
+          <Box bg={"tealOrangeGradient"} w="100%" h={1} />
           <Box bgColor={"transparent"} p={12}>
             <Formik
               initialValues={initialValues}
@@ -164,7 +160,7 @@ export default function Page() {
                                       transition: "color 0.2s",
                                       color: "teal.300",
                                       boxShadow:
-                                        "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E",
+                                        "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #f7ae8e",
                                     }}
                                     id="btnPublic"
                                     type="button"

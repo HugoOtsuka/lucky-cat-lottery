@@ -42,12 +42,12 @@ export default function LotteriesList({
               }
               bg={
                 lottery.currentState === 1
-                  ? "linear-gradient(to right, #4A5568, #A0AEC0)"
+                  ? "grayGradient"
                   : index % 3 === 0
-                  ? "linear-gradient(to right, #2b63a3, #a2669c)"
+                  ? "bluePurpleGradient"
                   : index % 3 === 1
-                  ? "linear-gradient(to right, #f8f39e, #ed708e)"
-                  : "linear-gradient(to right, #51cdd8, #F7AE8E)"
+                  ? "yellowRedGradient"
+                  : "tealOrangeGradient"
               }
               boxShadow={"none"}
               borderRadius={0}
@@ -64,14 +64,14 @@ export default function LotteriesList({
                     <Flex>
                       <Text
                         color={
-                          lottery.currentState === 1 ? "gray.300" : "primary"
+                          lottery.currentState === 1 ? "gray.300" : "teal.300"
                         }
                       >
                         Lottery
                       </Text>
                       <Text
                         color={
-                          lottery.currentState === 1 ? "gray.300" : "warning"
+                          lottery.currentState === 1 ? "gray.300" : "orange.200"
                         }
                       >
                         {"\u00A0"}
@@ -85,7 +85,9 @@ export default function LotteriesList({
                     ) : null}
                     {inMyLotteries || inMyBets ? (
                       <Text
-                        color={lottery.privateLottery ? "#f8f39e" : "#51cdd8"}
+                        color={
+                          lottery.privateLottery ? "yellow.200" : "teal.300"
+                        }
                       >
                         {lottery.privateLottery ? "Private" : "Public"}
                       </Text>
@@ -164,7 +166,7 @@ export default function LotteriesList({
           justifyContent="center"
         >
           <Card
-            bg={"linear-gradient(to right, #a2669c, #ed708e)"}
+            bg={"purpleRedGradient"}
             boxShadow={"none"}
             borderRadius={0}
             p={1}

@@ -48,8 +48,8 @@ export default function Navbar() {
         left: 0,
         width: "100%",
         zIndex: 1000,
-        backgroundColor: "#1E1E1E",
-        boxShadow: "0px 4px 10px 10px #1E1E1E",
+        backgroundColor: "#1e1e1e",
+        boxShadow: "0px 4px 10px 10px #1e1e1e",
       }}
     >
       <Container maxW="maxWidth" display="flex" alignItems="center" p="0">
@@ -78,7 +78,7 @@ export default function Navbar() {
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
-              bg={"linear-gradient(to right, #F7AE8E, #2b63a3)"}
+              bg={"orangeBlueGradient"}
               h={1}
               w={8}
               mt={"23.5px"}
@@ -90,7 +90,7 @@ export default function Navbar() {
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
-              bg={"linear-gradient(to right, #a2669c, #f8f39e)"}
+              bg={"purpleYellowGradient"}
               h={1}
               w={8}
               mt={"23.5px"}
@@ -102,7 +102,7 @@ export default function Navbar() {
             />
             <Box
               className="animate__animated animate__fadeIn animate__delay-1s"
-              bg={"linear-gradient(to right, #ed708e, #51cdd8)"}
+              bg={"redTealGradient"}
               h={1}
               w={8}
               mt={"23.5px"}
@@ -116,7 +116,7 @@ export default function Navbar() {
               <>
                 <Box
                   className="animate__animated animate__fadeIn animate__delay-1s"
-                  bg={"linear-gradient(to right, #F7AE8E, #2b63a3)"}
+                  bg={"orangeBlueGradient"}
                   h={1}
                   w={8}
                   mt={"23.5px"}
@@ -128,7 +128,7 @@ export default function Navbar() {
                 />
                 <Box
                   className="animate__animated animate__fadeIn animate__delay-1s"
-                  bg={"linear-gradient(to right, #a2669c, #f8f39e)"}
+                  bg={"purpleYellowGradient"}
                   h={1}
                   mt={"23.5px"}
                   flex="1"
@@ -137,7 +137,7 @@ export default function Navbar() {
             ) : (
               <Box
                 className="animate__animated animate__fadeIn animate__delay-1s"
-                bg={"linear-gradient(to right, #F7AE8E, #2b63a3)"}
+                bg={"orangeBlueGradient"}
                 h={1}
                 mt={"23.5px"}
                 flex="1"

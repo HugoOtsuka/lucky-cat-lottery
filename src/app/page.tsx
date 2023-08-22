@@ -22,12 +22,7 @@ export default function Home() {
       <Box p="20px">
         <Heading size="md">All lotteries</Heading>
       </Box>
-      <Box
-        bg={"linear-gradient(to right, #51cdd8, #F7AE8E)"}
-        w="100%"
-        h={1}
-        mb={8}
-      />
+      <Box bg={"tealOrangeGradient"} w="100%" h={1} mb={8} />
       <LotteriesList
         lotteries={activePublicLotteries}
         date={date}

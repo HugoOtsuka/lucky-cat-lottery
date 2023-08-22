@@ -21,12 +21,7 @@ export default function Page() {
       <Box p="20px">
         <Heading size="md">My bets</Heading>
       </Box>
-      <Box
-        bg={"linear-gradient(to right, #f8f39e, #ed708e)"}
-        w="100%"
-        h={1}
-        mb={8}
-      />
+      <Box bg={"yellowRedGradient"} w="100%" h={1} mb={8} />
       <LotteriesList
         lotteries={userBets}
         date={date}

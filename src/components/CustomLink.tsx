@@ -22,10 +22,10 @@ const CustomLink: React.FC<CustomLinkProps> = ({
       mx={1}
       bg={
         colorTheme === "yellowRed"
-          ? "linear-gradient(to right, #f8f39e, #ed708e)"
+          ? "yellowRedGradient"
           : colorTheme === "bluePurple"
-          ? "linear-gradient(to right, #2b63a3, #a2669c)"
-          : "linear-gradient(to right, #51cdd8, #F7AE8E)"
+          ? "bluePurpleGradient"
+          : "tealOrangeGradient"
       }
       p={1}
       boxShadow={
@@ -34,7 +34,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
             ? "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e"
             : colorTheme === "bluePurple"
             ? "0px 10px 10px -5px #2b63a3, 0px -10px 10px -5px #a2669c"
-            : "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E"
+            : "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #f7ae8e"
           : "none"
       }
       _hover={{

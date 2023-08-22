@@ -89,18 +89,14 @@ const page: FC<pageProps> = ({ params }) => {
             <Spacer />
             <Heading
               size="md"
-              color={lottery.privateLottery ? "#f8f39e" : "#51cdd8"}
+              color={lottery.privateLottery ? "yellow.200" : "teal.300"}
             >
               {lottery.privateLottery ? "Private" : "Public"}
             </Heading>
           </Flex>
         </CardHeader>
         <Box
-          bg={
-            lottery.currentState === 1
-              ? "linear-gradient(to right, #4A5568, #A0AEC0)"
-              : "linear-gradient(to right, #a2669c, #ed708e)"
-          }
+          bg={lottery.currentState === 1 ? "grayGradient" : "purpleRedGradient"}
           w="100%"
           h={1}
         />
@@ -224,11 +220,7 @@ const page: FC<pageProps> = ({ params }) => {
           )}
         </Box>
         <Box
-          bg={
-            lottery.currentState === 1
-              ? "linear-gradient(to right, #4A5568, #A0AEC0)"
-              : "linear-gradient(to right, #a2669c, #ed708e)"
-          }
+          bg={lottery.currentState === 1 ? "grayGradient" : "purpleRedGradient"}
           w="100%"
           h={1}
         />

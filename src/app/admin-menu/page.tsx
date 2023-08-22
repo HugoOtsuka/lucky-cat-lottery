@@ -74,7 +74,7 @@ const FormCreateStop = () => {
                               transition: "color 0.2s",
                               color: "orange.200",
                               boxShadow:
-                                "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #F7AE8E",
+                                "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #f7ae8e",
                             }}
                             id="btnActivated"
                             type="button"
@@ -316,11 +316,7 @@ export default function Page() {
           <CardHeader>
             <Heading size="md">Admin menu</Heading>
           </CardHeader>
-          <Box
-            bg={"linear-gradient(to right, #2b63a3, #a2669c)"}
-            w="100%"
-            h={1}
-          />
+          <Box bg={"bluePurpleGradient"} w="100%" h={1} />
           <Box bgColor={"transparent"} p={12}>
             <Card
               bgColor={"transparent"}
@@ -329,8 +325,8 @@ export default function Page() {
               mb={14}
               borderRadius={0}
               border={"2px solid"}
-              borderColor={"primary"}
-              color={"primary"}
+              borderColor={"teal.300"}
+              color={"teal.300"}
               p={6}
             >
               <Text>Contract status :</Text>
@@ -338,21 +334,21 @@ export default function Page() {
                 <Spacer />
                 <Flex flex="25%">
                   <Text>Lotteries creation : </Text>
-                  <Text color={createStop ? "danger" : "warning"}>
+                  <Text color={createStop ? "red.300" : "orange.200"}>
                     {"\u00A0"}
                     {createStop ? "Disabled" : "Activated"}
                   </Text>
                 </Flex>
                 <Flex flex="20%">
                   <Text>House fee : </Text>
-                  <Text color={"warning"}>
+                  <Text color={"orange.200"}>
                     {"\u00A0"}
                     {houseFee?.toString()}%
                   </Text>
                 </Flex>
                 <Flex flex="20%">
                   <Text>Fund fee : </Text>
-                  <Text color={"warning"}>
+                  <Text color={"orange.200"}>
                     {"\u00A0"}
                     {fundFee?.toString()}%
                   </Text>
