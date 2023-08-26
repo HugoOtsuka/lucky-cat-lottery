@@ -53,7 +53,8 @@ export default function LotteriesList({
               borderRadius={0}
               p={1}
               mb={8}
-              mx={40}
+              mx={{ base: 0, md: 40, sm: 0 }}
+              fontSize={{ base: "sm", md: "md", sm: "sm" }}
             >
               <Flex direction={"column"} bgColor={"gray.900"} p={4}>
                 <Box
@@ -95,7 +96,7 @@ export default function LotteriesList({
                   </Flex>
                   <Divider />
                   <Box
-                    px={6}
+                    px={{ base: 0, md: 6, sm: 0 }}
                     color={lottery.currentState === 1 ? "gray.300" : "white"}
                   >
                     <Flex pt={4} pb={2}>
@@ -142,6 +143,7 @@ export default function LotteriesList({
                       <CustomButton
                         buttonText="Claim prize"
                         colorTheme="yellowRed"
+                        fontSize={{ base: "sm", md: "md", sm: "sm" }}
                         onClick={() => handleOnClickClaim(lottery.id)}
                       />
                     </Flex>
@@ -151,6 +153,7 @@ export default function LotteriesList({
                         buttonText="Bet"
                         colorTheme="tealOrange"
                         w={"75px"}
+                        fontSize={{ base: "sm", md: "md", sm: "sm" }}
                         onClick={() => handleOnClickBet(lottery.id)}
                       />
                     </Flex>
@@ -170,10 +173,12 @@ export default function LotteriesList({
             boxShadow={"none"}
             borderRadius={0}
             p={1}
-            minW={"300px"}
+            minW={{ base: "250px", md: "300px", sm: "250px" }}
           >
             <Flex bgColor={"gray.900"} p={4} justifyContent="center">
-              <Text fontSize={20}>No lottery yet</Text>
+              <Text fontSize={{ base: 18, md: 20, sm: 18 }}>
+                No lottery yet
+              </Text>
             </Flex>
           </Card>
         </Flex>

@@ -127,7 +127,10 @@ export default function Page() {
             <Heading size="md">Create lottery</Heading>
           </CardHeader>
           <Box bg={"tealOrangeGradient"} w="100%" h={1} />
-          <Box bgColor={"transparent"} p={12}>
+          <Box
+            bgColor={"transparent"}
+            p={{ base: "30px 0px", md: 12, sm: "30px 0px" }}
+          >
             <Formik
               initialValues={initialValues}
               onSubmit={onSubmit}
@@ -139,28 +142,42 @@ export default function Page() {
                     <Field name="privateLottery">
                       {({ field, form }: any) => (
                         <FormControl>
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="privateLottery" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="privateLottery"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Lottery Type
                             </FormLabel>
-                            <Box flex="70%">
+                            <Box flex={{ base: "65%", md: "70%", sm: "65%" }}>
                               <ButtonGroup
                                 {...field}
                                 id="privateLottery"
                                 isAttached
-                                w="190px"
                               >
                                 <Stack spacing={0} direction="row">
                                   <CustomButton
                                     buttonText="Public"
                                     colorTheme="tealOrange"
-                                    mx={1}
-                                    w={"95px"}
+                                    mr={2}
+                                    w={{ base: "85px", md: "95px", sm: "85px" }}
                                     _active={{
                                       transition: "color 0.2s",
                                       color: "teal.300",
                                       boxShadow:
                                         "0px 10px 10px -5px #51cdd8, 0px -10px 10px -5px #f7ae8e",
+                                    }}
+                                    fontSize={{
+                                      base: "sm",
+                                      md: "md",
+                                      sm: "sm",
                                     }}
                                     id="btnPublic"
                                     type="button"
@@ -177,13 +194,17 @@ export default function Page() {
                                   <CustomButton
                                     buttonText="Private"
                                     colorTheme="yellowRed"
-                                    mx={1}
-                                    w={"95px"}
+                                    w={{ base: "85px", md: "95px", sm: "85px" }}
                                     _active={{
                                       transition: "color 0.2s",
                                       color: "yellow.200",
                                       boxShadow:
                                         "0px 10px 10px -5px #f8f39e, 0px -10px 10px -5px #ed708e",
+                                    }}
+                                    fontSize={{
+                                      base: "sm",
+                                      md: "md",
+                                      sm: "sm",
                                     }}
                                     id="btnPrivate"
                                     type="button"
@@ -211,8 +232,18 @@ export default function Page() {
                             form.errors.creatorFee && form.touched.creatorFee
                           }
                         >
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="creatorFee" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="creatorFee"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Creator fee
                             </FormLabel>
                             <Input
@@ -220,14 +251,17 @@ export default function Page() {
                               id="creatorFee"
                               type="number"
                               placeholder="Enter the creator fee (%)"
-                              flex="70%"
+                              flex={{ base: "65%", md: "70%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
                             />
                             <FormErrorMessage
                               pos="absolute"
-                              left="32%"
+                              left={{ md: "32%" }}
+                              right={{ base: "0%", sm: "0%" }}
                               top="40px"
+                              fontSize={{ base: "xs", md: "sm", sm: "xs" }}
                             >
                               {form.errors.creatorFee}
                             </FormErrorMessage>
@@ -243,8 +277,18 @@ export default function Page() {
                             form.errors.betPrice && form.touched.betPrice
                           }
                         >
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="betPrice" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="betPrice"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Bet price <span>*</span>
                             </FormLabel>
                             <Input
@@ -252,14 +296,17 @@ export default function Page() {
                               id="betPrice"
                               type="number"
                               placeholder="Enter the bet price (ETH)"
-                              flex="70%"
+                              flex={{ base: "65%", md: "70%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
                             />
                             <FormErrorMessage
                               pos="absolute"
-                              left="32%"
+                              left={{ md: "32%" }}
+                              right={{ base: "0%", sm: "0%" }}
                               top="40px"
+                              fontSize={{ base: "xs", md: "sm", sm: "xs" }}
                             >
                               {form.errors.betPrice}
                             </FormErrorMessage>
@@ -275,8 +322,18 @@ export default function Page() {
                             form.errors.maxBettors && form.touched.maxBettors
                           }
                         >
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="maxBettors" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="maxBettors"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Max bettors <span>*</span>
                             </FormLabel>
                             <Input
@@ -284,14 +341,17 @@ export default function Page() {
                               id="maxBettors"
                               type="number"
                               placeholder="Enter the max bettors"
-                              flex="70%"
+                              flex={{ base: "65%", md: "70%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
                             />
                             <FormErrorMessage
                               pos="absolute"
-                              left="32%"
+                              left={{ md: "32%" }}
+                              right={{ base: "0%", sm: "0%" }}
                               top="40px"
+                              fontSize={{ base: "xs", md: "sm", sm: "xs" }}
                             >
                               {form.errors.maxBettors}
                             </FormErrorMessage>
@@ -307,8 +367,18 @@ export default function Page() {
                             form.errors.endingDate && form.touched.endingDate
                           }
                         >
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="endingDate" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="endingDate"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Ending date <span>*</span>
                             </FormLabel>
                             <Input
@@ -316,14 +386,17 @@ export default function Page() {
                               id="endingDate"
                               type="datetime-local"
                               placeholder="Select Date and Time"
-                              flex="70%"
+                              flex={{ base: "65%", md: "70%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
                             />
                             <FormErrorMessage
                               pos="absolute"
-                              left="32%"
+                              left={{ md: "32%" }}
+                              right={{ base: "0%", sm: "0%" }}
                               top="40px"
+                              fontSize={{ base: "xs", md: "sm", sm: "xs" }}
                             >
                               {form.errors.endingDate}
                             </FormErrorMessage>
@@ -335,15 +408,25 @@ export default function Page() {
                     <Field name="createAndBet">
                       {({ field }: any) => (
                         <FormControl>
-                          <Flex mb={14}>
-                            <FormLabel htmlFor="createAndBet" flex="30%">
+                          <Flex
+                            mb={{
+                              base: 10,
+                              md: 14,
+                              sm: 10,
+                            }}
+                          >
+                            <FormLabel
+                              htmlFor="createAndBet"
+                              flex={{ base: "35%", md: "30%", sm: "35%" }}
+                              fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                            >
                               Bet directly on the lottery
                             </FormLabel>
                             <Checkbox
                               {...field}
                               id="createAndBet"
                               size="lg"
-                              flex="70%"
+                              flex={{ base: "65%", md: "70%", sm: "65%" }}
                               colorScheme="teal.300"
                               iconColor="teal.300"
                             ></Checkbox>
@@ -364,8 +447,26 @@ export default function Page() {
                                     form.touched.password
                                   }
                                 >
-                                  <Flex mb={14}>
-                                    <FormLabel htmlFor="password" flex="30%">
+                                  <Flex
+                                    mb={{
+                                      base: 10,
+                                      md: 14,
+                                      sm: 10,
+                                    }}
+                                  >
+                                    <FormLabel
+                                      htmlFor="password"
+                                      flex={{
+                                        base: "35%",
+                                        md: "30%",
+                                        sm: "35%",
+                                      }}
+                                      fontSize={{
+                                        base: "sm",
+                                        md: "md",
+                                        sm: "sm",
+                                      }}
+                                    >
                                       Password <span>*</span>
                                     </FormLabel>
                                     <Input
@@ -373,14 +474,35 @@ export default function Page() {
                                       id="password"
                                       type="password"
                                       placeholder="Enter password"
-                                      flex="70%"
+                                      flex={{
+                                        base: "65%",
+                                        md: "70%",
+                                        sm: "65%",
+                                      }}
                                       borderRadius={0}
                                       focusBorderColor="teal.300"
+                                      fontSize={{
+                                        base: "sm",
+                                        md: "md",
+                                        sm: "sm",
+                                      }}
                                     />
                                     <FormErrorMessage
                                       pos="absolute"
-                                      left="32%"
+                                      left={{
+                                        md: "32%",
+                                      }}
+                                      right={{
+                                        base: "0%",
+
+                                        sm: "0%",
+                                      }}
                                       top="40px"
+                                      fontSize={{
+                                        base: "xs",
+                                        md: "sm",
+                                        sm: "xs",
+                                      }}
                                     >
                                       {form.errors.password}
                                     </FormErrorMessage>
@@ -407,6 +529,7 @@ export default function Page() {
                                     : "Create lottery & bet"
                                 }
                                 colorTheme="bluePurple"
+                                fontSize={{ base: "sm", md: "md", sm: "sm" }}
                                 type="submit"
                                 disabled={
                                   !formik.isValid || formik.isSubmitting
@@ -417,7 +540,10 @@ export default function Page() {
                         } else {
                           return (
                             <Flex justifyContent="flex-end">
-                              <Text color="red.500">
+                              <Text
+                                color="red.500"
+                                fontSize={{ base: "sm", md: "md", sm: "sm" }}
+                              >
                                 The creation of lotteries are disabled for the
                                 moment.
                               </Text>
