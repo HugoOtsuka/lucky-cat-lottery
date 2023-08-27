@@ -12,6 +12,7 @@ import {
   Input,
   Spacer,
   Text,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { useBlockchainContext } from "Context/BlockchainContext";
 import { Field, Form, Formik } from "formik";
@@ -29,6 +30,7 @@ type pageProps = {
 };
 
 const page: FC<pageProps> = ({ params }) => {
+  const [isMobile] = useMediaQuery("(max-width: 480px)");
   const { date, lottery, bet, claimPrize, getLottery, updateDate } =
     useBlockchainContext();
 
@@ -99,46 +101,65 @@ const page: FC<pageProps> = ({ params }) => {
           w="100%"
           h={1}
         />
-        <Box p={12} color={lottery.currentState === 1 ? "gray.300" : "white"}>
+        <Box
+          p={{ base: "30px 0px", md: 12, sm: "30px 0px" }}
+          color={lottery.currentState === 1 ? "gray.300" : "white"}
+        >
           <Flex pb={4}>
-            <Text>Prize pool :</Text>
-            <Spacer />
-            <Text>{ethers.utils.formatEther(lottery.prizePool)} ETH</Text>
-          </Flex>
-          <Flex pb={4}>
-            <Text>Bet price :</Text>
-            <Spacer />
-            <Text>{ethers.utils.formatEther(lottery.betPrice)} ETH</Text>
-          </Flex>
-          <Flex pb={4}>
-            <Text>Bettors :</Text>
-            <Spacer />
-            <Text>{`${
-              lottery.bettors.length
-            }/${lottery.maxBettors.toNumber()}`}</Text>
+            <Text flex={"35%"}>Prize pool :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>{ethers.utils.formatEther(lottery.prizePool)} ETH</Text>
+            </Flex>
           </Flex>
           <Flex pb={4}>
-            <Text>My bets :</Text>
-            <Spacer />
-            <Text>{`${lottery.numberOfBets}`}</Text>
+            <Text flex={"35%"}>Bet price :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>{ethers.utils.formatEther(lottery.betPrice)} ETH</Text>
+            </Flex>
           </Flex>
           <Flex pb={4}>
-            <Text>Creator fee :</Text>
-            <Spacer />
-            <Text>{lottery.creatorFee.toNumber()} %</Text>
+            <Text flex={"35%"}>Bettors :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>{`${
+                lottery.bettors.length
+              }/${lottery.maxBettors.toNumber()}`}</Text>
+            </Flex>
           </Flex>
           <Flex pb={4}>
-            <Text>Ending date :</Text>
-            <Spacer />
-            <Text>
-              {new Date(lottery.endingDate.toNumber()).toLocaleString()}
-            </Text>
+            <Text flex={"35%"}>My bets :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>{`${lottery.numberOfBets}`}</Text>
+            </Flex>
           </Flex>
-          <Flex pb={10}>
-            <Text>Creator :</Text>
-            <Spacer />
-            <Text>{lottery.lotteryCreator}</Text>
+          <Flex pb={4}>
+            <Text flex={"35%"}>Creator fee :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>{lottery.creatorFee.toNumber()} %</Text>
+            </Flex>
           </Flex>
+          <Flex pb={4}>
+            <Text flex={"35%"}>Ending date :</Text>
+
+            <Flex justifyContent="flex-end" flex={"65%"}>
+              <Text>
+                {new Date(lottery.endingDate.toNumber()).toLocaleString()}
+              </Text>
+            </Flex>
+          </Flex>
+          {isMobile ? null : (
+            <Flex pb={4}>
+              <Text flex={"35%"}>Creator :</Text>
+
+              <Flex justifyContent="flex-end" flex={"65%"}>
+                <Text>{lottery.lotteryCreator}</Text>
+              </Flex>
+            </Flex>
+          )}
 
           {lottery.currentState === 1 ? (
             <Flex justifyContent="center">
@@ -169,8 +190,8 @@ const page: FC<pageProps> = ({ params }) => {
                             form.errors.password && form.touched.password
                           }
                         >
-                          <Flex mb={8}>
-                            <FormLabel htmlFor="password" flex="30%">
+                          <Flex mb={10}>
+                            <FormLabel htmlFor="password" flex="35%">
                               Password :
                             </FormLabel>
                             <Spacer />
@@ -179,14 +200,16 @@ const page: FC<pageProps> = ({ params }) => {
                               id="password"
                               type="password"
                               placeholder="Enter password"
-                              flex="20%"
+                              flex={{ base: "65%", md: "20%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"
                             />
                             <FormErrorMessage
                               pos="absolute"
-                              left="66%"
+                              left={{ md: "66%" }}
+                              right={{ base: "0%", sm: "0%" }}
                               top="40px"
+                              fontSize={{ base: "xs", md: "sm", sm: "xs" }}
                             >
                               {form.errors.password}
                             </FormErrorMessage>
