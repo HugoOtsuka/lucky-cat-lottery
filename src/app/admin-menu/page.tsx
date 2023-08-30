@@ -417,24 +417,18 @@ export default function Page() {
                 }}
               >
                 <Box flex="25%" mb={{ base: 4, md: 0, sm: 4 }}>
-                  <Text>
-                    Lotteries creation :
-                    <Text color={createStop ? "red.300" : "orange.200"}>
-                      {createStop ? "Disabled" : "Activated"}
-                    </Text>
+                  <Text>Lotteries creation :</Text>
+                  <Text color={createStop ? "red.300" : "orange.200"}>
+                    {createStop ? "Disabled" : "Activated"}
                   </Text>
                 </Box>
                 <Box flex="20%" ml={{ md: 8 }} mb={{ base: 4, md: 0, sm: 4 }}>
-                  <Text>
-                    House fee :
-                    <Text color={"orange.200"}>{houseFee?.toString()}%</Text>
-                  </Text>
+                  <Text>House fee :</Text>
+                  <Text color={"orange.200"}>{houseFee?.toString()}%</Text>
                 </Box>
                 <Box flex="10%" ml={{ md: 8 }}>
-                  <Text>
-                    Fund fee :
-                    <Text color={"orange.200"}>{fundFee?.toString()}%</Text>
-                  </Text>
+                  <Text>Fund fee :</Text>
+                  <Text color={"orange.200"}>{fundFee?.toString()}%</Text>
                 </Box>
               </Flex>
             </Card>

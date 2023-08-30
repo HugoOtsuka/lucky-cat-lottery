@@ -54,7 +54,7 @@ export default function Navbar() {
     >
       <Container maxW="maxWidth" display="flex" alignItems="center" p="0">
         <Flex alignItems="space-between" width="100%">
-          <Link as={NextLink} href="/" mx={6} position={"absolute"}>
+          <Link as={NextLink} href="/" ml={3} mr={5} position={"absolute"}>
             <Image
               className="animate__animated animate__fadeIn"
               src="/images/LuckyCat.png"
@@ -64,7 +64,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <Box width={"75px"} mx={6}></Box>
+          <Box width={"75px"} ml={3} mr={5}></Box>
           <Flex
             className="animate__animated animate__fadeInRight"
             pt={"13px"}

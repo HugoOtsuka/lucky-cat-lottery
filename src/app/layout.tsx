@@ -4,7 +4,8 @@ import { Inter } from "next/font/google";
 import { UIContextProvider } from "Context/UIContext";
 import { BlockchainContextProvider } from "Context/BlockchainContext";
 import Navbar from "components/Navbar";
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
+import BurgerMenu from "components/BurgerMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isSmallerScreen] = useMediaQuery("(max-width: 768px)");
+
   return (
     <html lang="en">
       <body className={inter.className}>
         <UIContextProvider>
           <BlockchainContextProvider>
-            <Navbar />
-            <Box mt={"75px"}>{children}</Box>
+            {isSmallerScreen ? <BurgerMenu /> : <Navbar />}
+            <Box mt={isSmallerScreen ? "0px" : "75px"}>{children}</Box>
           </BlockchainContextProvider>
         </UIContextProvider>
       </body>
