@@ -112,7 +112,7 @@ export const BlockchainContextProvider = ({
       setAccounts(accounts);
       setContract(
         new ethers.Contract(
-          "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "0xE23eB16797e4314C33F5A6d4B7c666F038c6e314",
           LuckyCatLottery.abi,
           newSigner
         )
