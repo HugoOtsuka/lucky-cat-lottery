@@ -34,9 +34,9 @@ export default function LotteriesList({
     <>
       {lotteries && lotteries.length > 0 ? (
         <>
-          {lotteries.map((lottery: any, index: number) => (
+          {lotteries.map((lottery: Lottery, index: number) => (
             <Card
-              key={lottery.id}
+              key={lottery.id.toNumber()}
               className={
                 "animate__animated animate__fadeInLeft animate__faster"
               }
@@ -144,7 +144,9 @@ export default function LotteriesList({
                         buttonText="Claim prize"
                         colorTheme="yellowRed"
                         fontSize={{ base: "sm", md: "md", sm: "sm" }}
-                        onClick={() => handleOnClickClaim(lottery.id)}
+                        onClick={() =>
+                          handleOnClickClaim(lottery.id.toNumber())
+                        }
                       />
                     </Flex>
                   ) : !lottery.privateLottery ? (
@@ -154,7 +156,7 @@ export default function LotteriesList({
                         colorTheme="tealOrange"
                         w={"75px"}
                         fontSize={{ base: "sm", md: "md", sm: "sm" }}
-                        onClick={() => handleOnClickBet(lottery.id)}
+                        onClick={() => handleOnClickBet(lottery.id.toNumber())}
                       />
                     </Flex>
                   ) : null
