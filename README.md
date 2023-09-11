@@ -1,13 +1,5 @@
-# Sample Hardhat Project
+# LUCKY CAT LOTTERY
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This project is a decentralized application leveraging the Polygon blockchain (Mumbai).
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+This application empowers users to create their lotteries, enabling them to customize bet prices, the number of participants, ending dates, and various other options. Additionally, users can directly participate in other lotteries and claim prizes from their previous bets.
