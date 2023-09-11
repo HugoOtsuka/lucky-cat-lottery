@@ -1,4 +1,4 @@
-# LUCKY CAT LOTTERY
+# Lucky Cat Lottery
 
 This project is a decentralized application leveraging the Polygon blockchain (Mumbai).
 
