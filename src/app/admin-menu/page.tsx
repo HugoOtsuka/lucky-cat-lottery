@@ -405,7 +405,7 @@ export default function Page() {
               }}
             >
               <Flex justifyContent="center">
-                <Text fontWeight="bold">Contract status :</Text>
+                <Text fontWeight="bold">Smart contract status :</Text>
               </Flex>
               <Flex
                 direction={{ base: "column", md: "row", sm: "column" }}
