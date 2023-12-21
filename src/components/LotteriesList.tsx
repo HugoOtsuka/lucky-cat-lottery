@@ -68,7 +68,7 @@ export default function LotteriesList({
                           lottery.currentState === 1 ? "gray.300" : "teal.300"
                         }
                       >
-                        Lottery
+                        Lottery ID:
                       </Text>
                       <Text
                         color={
@@ -103,14 +103,14 @@ export default function LotteriesList({
                       <Text>Prize pool :</Text>
                       <Spacer />
                       <Text>
-                        {ethers.utils.formatEther(lottery.prizePool)} ETH
+                        {ethers.utils.formatEther(lottery.prizePool)} MATIC
                       </Text>
                     </Flex>
                     <Flex pb={2}>
                       <Text>Bet price :</Text>
                       <Spacer />
                       <Text>
-                        {ethers.utils.formatEther(lottery.betPrice)} ETH
+                        {ethers.utils.formatEther(lottery.betPrice)} MATIC
                       </Text>
                     </Flex>
                     <Flex pb={2}>

@@ -295,7 +295,7 @@ export default function Page() {
                               {...field}
                               id="betPrice"
                               type="number"
-                              placeholder="Enter the bet price (ETH)"
+                              placeholder="Enter the bet price (MATIC)"
                               flex={{ base: "65%", md: "70%", sm: "65%" }}
                               borderRadius={0}
                               focusBorderColor="teal.300"

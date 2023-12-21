@@ -85,7 +85,7 @@ const page: FC<pageProps> = ({ params }) => {
               size="md"
               color={lottery.currentState === 1 ? "gray.300" : "white"}
             >
-              Lottery {params.id}
+              Lottery ID: {params.id}
             </Heading>
             <Spacer />
             <Heading
@@ -109,14 +109,14 @@ const page: FC<pageProps> = ({ params }) => {
             <Text flex={"35%"}>Prize pool :</Text>
 
             <Flex justifyContent="flex-end" flex={"65%"}>
-              <Text>{ethers.utils.formatEther(lottery.prizePool)} ETH</Text>
+              <Text>{ethers.utils.formatEther(lottery.prizePool)} MATIC</Text>
             </Flex>
           </Flex>
           <Flex pb={4}>
             <Text flex={"35%"}>Bet price :</Text>
 
             <Flex justifyContent="flex-end" flex={"65%"}>
-              <Text>{ethers.utils.formatEther(lottery.betPrice)} ETH</Text>
+              <Text>{ethers.utils.formatEther(lottery.betPrice)} MATIC</Text>
             </Flex>
           </Flex>
           <Flex pb={4}>
