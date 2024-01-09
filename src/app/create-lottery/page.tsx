@@ -473,7 +473,7 @@ export default function Page() {
                                       {...field}
                                       id="password"
                                       type="password"
-                                      placeholder="Enter password"
+                                      placeholder="Password"
                                       flex={{
                                         base: "65%",
                                         md: "70%",
